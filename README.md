@@ -202,20 +202,59 @@ Powered by **MinerU**
 ```text
 IKB-RAG
 │
-├── frontend/                  
+├── api/                       # Modular FastAPI application layer
+│   ├── main.py                # FastAPI app initialization & CORS middleware
+│   ├── routes.py              # Endpoints (/query, /upload, /documents, /images, etc.)
+│   └── schemas.py             # Pydantic request models
+│
+├── config/                    # Centralized settings & configurations
+│   └── settings.py            # Environment variables, API keys, models, and paths
+│
+├── src/ikb_rag/               # Core Industrial RAG Pipeline Package
+│   ├── ingestion/             # Document loading (MinerU) & structural element chunking
+│   │   ├── loaders.py
+│   │   └── chunking.py
+│   ├── embeddings/            # Vector embedding generators (Nomic Atlas)
+│   │   └── embedder.py
+│   ├── vectorstore/           # Vector databases & index lifecycle management
+│   │   ├── qdrant_store.py    # Qdrant Cloud integration
+│   │   ├── simple_json_store.py # Local JSON fallback & pure-Python cosine similarity
+│   │   └── index_manager.py   # Re-indexing, deletion, and storage cleaning
+│   ├── retrieval/             # Query transformation & context retrieval
+│   │   ├── query_transforms.py # Intent router (SIMPLE/COMPLEX) & QA decomposer
+│   │   └── retriever.py       # Similarity retrieval & parent-document context assembly
+│   ├── generation/            # Prompt templates & LLM synthesis
+│   │   ├── prompt_templates.py # Industrial RCA Copilot & query prompts
+│   │   ├── llm_client.py      # Groq Llama-3 client wrapper
+│   │   └── response_generator.py # Formats context & generates expert answers
+│   ├── pipeline/              # Orchestration layer
+│   │   └── rag_pipeline.py    # IKBRagEngine & singleton rag_engine
+│   └── utils/                 # Filesystem & storage utility helpers
+│       └── file_utils.py
+│
+├── scripts/                   # CLI entrypoints
+│   ├── run_query.py           # Test queries directly from terminal
+│   └── build_index.py         # Index manuals directly from terminal
+│
+├── tests/                     # Unit and integration test suite
+│   ├── test_imports.py
+│   └── test_components.py
+│
+├── frontend/                  # React + Vite Frontend application
 │   ├── src/App.jsx            # Core UI, Chat Interface, PDF Viewer
 │   └── src/index.css          # Glassmorphism aesthetic tokens
 │
-├── pikerag/                   # The Core RAG Engine
-│   └── utils/rag_utils.py     # Embeddings, MinerU parsing, Qdrant client, Agents
-|
 ├── uploaded_documents/        # Local cache of active manuals
-├── static_images/             # High-res P&IDs extracted by MinerU
+├── static_images/             # High-res P&IDs and diagrams extracted by MinerU
 ├── parsed_data/               # MinerU JSON & Markdown artifacts
+│
+├── archive/                   # Preserved original pre-refactor backups
+│   ├── legacy_pikerag_rag_utils_backup.py
+│   └── legacy_api_backup.py
 │
 ├── .env
 ├── README.md
-├── api.py
+├── api.py                     # Root launcher (backward compatible: python api.py)
 └── requirements.txt
 ```
 
