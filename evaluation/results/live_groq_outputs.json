@@ -1,0 +1,651 @@
+[
+    {
+        "id": "q1",
+        "question": "What is a Piping and Instrumentation Diagram (P&ID)?",
+        "ground_truth_answer": "A P&ID is a drawing that shows piping and communications as unscaled schematic lines along with control features as symbols, illustrating the functional relationships between piping, instrumentation, equipment, and controllers.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            3
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**Piping and Instrumentation Diagram (P&ID)**  \n\nA Piping and Instrumentation Diagram (P&ID) is a schematic (un‑scaled) drawing that depicts *the functional relationship of piping, instrumentation, equipment, and controllers*. It shows piping lines, process equipment, and the symbols for instruments and control devices, indicating how they are interconnected and whether they are automatically controlled or interlocked. P&IDs are typically produced by process, controls, or electrical engineers and are used to convey the interconnectivity of automated components within a plant’s instrumentation drawing set.  \n\n[View Source: P&ID_DEMO.pdf (Page 3)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=3)",
+        "latency_seconds": 4.62,
+        "timestamp": "2026-10-22 22:33:11"
+    },
+    {
+        "id": "q2",
+        "question": "Which engineering disciplines typically create P&IDs?",
+        "ground_truth_answer": "P&IDs are commonly created by process engineers, controls engineers, and electrical engineers.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            3
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "Process and instrumentation diagrams (P&IDs) are typically prepared by **process engineers**, **controls engineers**, and **electrical engineers**【View Source: P&ID_DEMO.pdf (Page 3)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=3).",
+        "latency_seconds": 7.04,
+        "timestamp": "2026-10-22 22:33:21"
+    },
+    {
+        "id": "q3",
+        "question": "What is the main purpose of a P&ID?",
+        "ground_truth_answer": "To indicate whether devices are automatically controlled and, if so, how they are interlocked with instruments, conveying the interconnectivity of automated components.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            3
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "The main purpose of a Piping and Instrumentation Diagram (P&ID) is to **show whether devices are automatically controlled and how they are interlocked with instruments**, thereby conveying the functional interconnectivity of pumps, valves, sensors, controllers, and other equipment within the process. P&IDs illustrate the overall relationship among piping, instrumentation, equipment, and control systems.  \n\n[View Source: P&ID_DEMO.pdf (Page 3)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=3)",
+        "latency_seconds": 4.85,
+        "timestamp": "2026-10-22 22:33:29"
+    },
+    {
+        "id": "q4",
+        "question": "In the example P&ID (Figure 1), what two devices are shown interacting with each other?",
+        "ground_truth_answer": "A sludge pump (P-4-3) and a solenoid valve (FV-4-3) that controls seal water to the pump's mechanical seals.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            3
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**Answer:**  \nThe example P&ID (Figure 1) shows the interaction between:\n\n1. **Pump P‑4‑3** – the main process pump.  \n2. **Solenoid valve FV‑4‑3** – the valve that controls seal water to the pump’s mechanical seals.\n\nThese two devices are wired so that the valve opens when the pump turns on and closes when the pump turns off, ensuring seal water is supplied only during pump operation.\n\n---\n\n### Diagram\n\n![Figure 1: Example P&ID for a pump and a valve.](http://localhost:8002/images/1/P&ID_DEMO/d787081a4a3cc7a9a12e458e6fc7606d65db8291c4db70abdbfc170f751f5650.jpg)\n\n---\n\n**Source:**  \n[View Source: P&ID_DEMO.pdf (Page 3)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=3)",
+        "latency_seconds": 4.69,
+        "timestamp": "2026-10-22 23:08:51"
+    },
+    {
+        "id": "q5",
+        "question": "According to the Figure 1 control description, under what conditions does valve FV-4-3 open and close?",
+        "ground_truth_answer": "FV-4-3 opens when pump P-4-3 turns on, and closes when pump P-4-3 turns off.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            3
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "![Figure 1: Example P&ID for a pump and a valve.](http://localhost:8002/images/1/P&ID_DEMO/d787081a4a3cc7a9a12e458e6fc7606d65db8291c4db70abdbfc170f751f5650.jpg)\n\n**Control Description (Figure 1)**  \n- **Valve FV‑4‑3 opens** → when pump **P‑4‑3 turns ON**.  \n- **Valve FV‑4‑3 closes** → when pump **P‑4‑3 turns OFF**.\n\n[View Source: P&ID_DEMO.pdf (Page 3)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=3)",
+        "latency_seconds": 4.99,
+        "timestamp": "2026-10-22 23:09:08"
+    },
+    {
+        "id": "q6",
+        "question": "Why is the seal water on the sludge pump in Figure 1 controlled to only flow while the pump is running?",
+        "ground_truth_answer": "To conserve water; the wiring from the motor starter (MS) to the solenoid (S) allows automated control so seal water only flows when the pump is operating.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            3
+        ],
+        "question_type": "multi_chunk",
+        "expected_intent": "COMPLEX",
+        "generated_answer": "The seal‑water line is interlocked with the pump so that water is supplied **only while the pump is running**.  \nThis is done primarily to **conserve water**—the seal water is needed to lubricate and cool the mechanical seals **only during operation**. Supplying it when the pump is off would waste water, could cause over‑filling of the seal‑water reservoir, and might introduce unnecessary moisture that could lead to corrosion or other issues.\n\n**Key points from the P&ID (Figure 1):**  \n- “Valve FV‑4‑3 shall open when pump P‑4‑3 turns on. … close when pump P‑4‑3 turns off.”  \n- The wiring from the motor starter (MS) to the solenoid (S) provides the automated control.  \n- The documentation explicitly states: *“To conserve water, the seal water should only flow when the pump is operating.”*  \n\n![Figure 1: Example P&ID for a pump and a valve.](http://localhost:8002/images/1/P&ID_DEMO/d787081a4a3cc7a9a12e458e6fc7606d65db8291c4db70abdbfc170f751f5650.jpg)\n\n**Source**: [View Source: P&ID_DEMO.pdf (Page 3)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=3)",
+        "latency_seconds": 5.04,
+        "timestamp": "2026-10-22 23:09:25"
+    },
+    {
+        "id": "q7",
+        "question": "What is a Block Flow Diagram and at what stage of a project is it typically created?",
+        "ground_truth_answer": "A block flow diagram shows the main processes as rectangles or circles connected by lines and arrows for the main flow paths. It's commonly made by a process engineer in the planning stage or early in design.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            6
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**Block Flow Diagram (BFD)**  \nA Block Flow Diagram is a high‑level schematic that represents the main process steps as simple rectangles or circles, connected by lines and arrows that indicate the overall flow path of material or energy. It focuses on the sequence of major operations rather than detailed piping or instrumentation.\n\n**Typical Project Stage**  \nA BFD is created **in the planning stage or early in the design phase** by a process engineer. It serves as an initial visual tool to outline the overall process before detailed engineering (such as Process Flow Diagrams and P&IDs) begins.\n\n---\n\n### Example Diagram\n![Figure 2: Example of a block flow diagram](http://localhost:8002/images/1/P&ID_DEMO/71b6cc1b9b4bbc9dd3be1022afc5ea572da757131641eeab13b0dceea41e16b1.jpg)\n\n---\n\n**Source**: [View Source: P&ID_DEMO.pdf (Page 6)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=6)",
+        "latency_seconds": 5.19,
+        "timestamp": "2026-10-22 22:33:59"
+    },
+    {
+        "id": "q8",
+        "question": "What process is illustrated in the example Block Flow Diagram (Figure 2), and what is its cited source?",
+        "ground_truth_answer": "It shows a water treatment system (influent flowing through a pressure tank, oxidizing filter, IX filter, disinfection, and then to the distribution system), sourced from an EPA report on arsenic removal from drinking water by ion exchange and activated alumina plants.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            6
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "The Block Flow Diagram (Figure 2) illustrates a **water‑treatment system**—specifically the process flow used for treating drinking water.\n\n![Figure 2: Example of a block flow diagram](http://localhost:8002/images/1/P&ID_DEMO/71b6cc1b9b4bbc9dd3be1022afc5ea572da757131641eeab13b0dceea41e16b1.jpg)  \n*Source: “Arsenic Removal from Drinking Water by Ion Exchange and Activated Alumina Plants”, EPA 600/R‑00/088*  \n\n[View Source: P&ID_DEMO.pdf (Page 6)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=6)",
+        "latency_seconds": 5.77,
+        "timestamp": "2026-10-22 22:34:07"
+    },
+    {
+        "id": "q9",
+        "question": "What is a Process Flow Diagram (PFD)?",
+        "ground_truth_answer": "A drawing created by process or mechanical engineers early in the design stage, showing piping lines and symbols for major components such as pumps, tanks, mixers, and flow meters, ideally with instrumentation identified.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            7
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "A **Process Flow Diagram (PFD)** is a schematic drawing created early in the design stage by process or mechanical engineers. It shows the major process equipment (such as pumps, tanks, mixers, and flow meters) and the piping that connects them, using standardized symbols. The diagram also identifies key instrumentation and, when needed, includes basic information like pipe sizes, fluid types, and control devices. PFDs serve as the foundational layout that later engineers (electrical, controls, and CAD specialists) use to develop detailed P&IDs and control schematics.\n\n**Key points from the source:**\n- Drawn with lines for piping and symbols for major components.  \n- Includes major equipment and instrumentation.  \n- Used as a starting point for creating detailed P&IDs and control/communication details.\n\n[View Source: P&ID_DEMO.pdf (Page 7)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=7)",
+        "latency_seconds": 4.81,
+        "timestamp": "2026-10-22 23:09:42"
+    },
+    {
+        "id": "q10",
+        "question": "Who typically receives PFDs, and what do they do with them?",
+        "ground_truth_answer": "PFDs are often given to electrical and controls engineers, who use them as CAD backgrounds and add control and communication details on top to create P&IDs.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            7
+        ],
+        "question_type": "paraphrase",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**Typical recipients of PFDs**\n\n- **Electrical engineers** and **controls engineers** are the primary recipients of Process Flow Diagrams (PFDs).\n\n**What they do with the PFDs**\n\n- They use the PFD as the **baseline CAD background** for drafting detailed **Piping & Instrumentation Diagrams (P&IDs)**.  \n- On this background they **add control and communication details**, such as instrumentation symbols, wiring connections, controller locations, MCCs, and SCADA interfaces, turning the high‑level process flow into a fully‑specified control drawing.\n\n**Source**  \n[View Source: P&ID_DEMO.pdf (Page 7)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=7)",
+        "latency_seconds": 9.47,
+        "timestamp": "2026-10-22 23:10:03"
+    },
+    {
+        "id": "q11",
+        "question": "In Figure 4, how are motorized or automated valves visually indicated on the drawing?",
+        "ground_truth_answer": "They are shown with an \"M\" inside a box.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            8
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "Motorized or automated valves are identified on the drawing by an **“M” placed inside a box** next to the valve symbol.\n\n![Figure 4: Example PFD with details such as pipe size, fluid type and motorized/automated valves shown with an “M” in a box.](http://localhost:8002/images/1/P&ID_DEMO/e9aae23e90510099c8c1bd97af0107540486aed531538355366d4e5a566d2269.jpg)\n\n[View Source: P&ID_DEMO.pdf (Page 8)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=8)",
+        "latency_seconds": 6.94,
+        "timestamp": "2026-10-22 23:10:22"
+    },
+    {
+        "id": "q12",
+        "question": "What is the purpose of a legend drawing in a project drawing set?",
+        "ground_truth_answer": "It defines the symbols, abbreviations, line types, and shading used on the PFDs and P&IDs. Sometimes there is one common legend for both, and sometimes separate legends exist for PFDs and P&IDs.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            8
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "A legend drawing is included with a project drawing set to **define the symbols, abbreviations, line types, shading, and other graphic conventions used on the PFDs and P&IDs**.  \nBy providing a clear reference, the legend ensures that anyone reading the drawings can correctly interpret the meaning of each symbol and notation, preventing mis‑communication and errors during design, construction, and operation.\n\n![Figure 4: Example PFD with details such as pipe size, fluid type and motorized/automated valves shown with an “M” in a box.](http://localhost:8002/images/1/P&ID_DEMO/e9aae23e90510099c8c1bd97af0107540486aed531538355366d4e5a566d2269.jpg)\n\n[View Source: P&ID_DEMO.pdf (Page 8)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=8)",
+        "latency_seconds": 6.56,
+        "timestamp": "2026-10-22 22:34:39"
+    },
+    {
+        "id": "q13",
+        "question": "What is an Instrument Schematic, and how does it differ from a P&ID?",
+        "ground_truth_answer": "An instrument schematic is a detailed drawing for one particular instrument, showing wiring details and control logic notes relevant only to that instrument. This differs from a P&ID, which shows the interconnectivity across multiple instruments, equipment, and panels.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            9,
+            3
+        ],
+        "question_type": "multi_chunk",
+        "expected_intent": "COMPLEX",
+        "generated_answer": "**Instrument Schematic**  \nAn instrument schematic (or diagram) is a detailed drawing for a *single* instrument. It shows the exact wiring connections, terminal assignments, and any control‑logic notes that apply only to that instrument. The focus is on the internal electrical/communication layout of the device (e.g., a flow‑meter, pressure transmitter, etc.).  \n\n**How it differs from a P&ID**  \n\n| Aspect | Instrument Schematic | P&ID (Piping & Instrumentation Diagram) |\n|--------|----------------------|------------------------------------------|\n| **Scope** | One specific instrument only | Entire plant or system, showing all piping, equipment, instruments, and control loops |\n| **Content** | Wiring details, terminal numbers, device‑specific logic | Functional relationships, interconnections, process flow, control interlocks, and equipment locations |\n| **Purpose** | Installation, troubleshooting, and maintenance of that instrument | Design, engineering, and overall process control verification; shows how devices are interlocked and automated |\n| **Level of Detail** | High‑detail electrical wiring | High‑level schematic (unscaled) of process and control topology |\n| **Typical Users** | Instrument technicians, electricians | Process engineers, controls engineers, safety reviewers |\n\n**Illustrative Example** – Figure 5 shows an instrument schematic for a flow meter, highlighting its wiring and control notes.  \n\n![Figure 5: Example instrument schematic for a flow meter](http://localhost:8002/images/1/P&ID_DEMO/9f499b4b8ab4bb81161303b1d1efa036f8c232c0bc6673d1452bda7e1ef34166.jpg)\n\n---\n\n**Sources**  \n[View Source: P&ID_DEMO.pdf (Page 9)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=9)  \n[View Source: P&ID_DEMO.pdf (Page 3)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=3)",
+        "latency_seconds": 6.6,
+        "timestamp": "2026-10-22 23:10:41"
+    },
+    {
+        "id": "q14",
+        "question": "What instrument is depicted in the example Instrument Schematic (Figure 5)?",
+        "ground_truth_answer": "A flow transmitter, showing its coil circuit and electrode circuit wiring along with power (120VAC) and signal (4-20mA analog) connections.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            9
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "The example Instrument Schematic (Figure 5) depicts a **flow meter**.\n\n![Figure 5: Example instrument schematic for a flow meter](http://localhost:8002/images/1/P&ID_DEMO/9f499b4b8ab4bb81161303b1d1efa036f8c232c0bc6673d1452bda7e1ef34166.jpg)\n\n[View Source: P&ID_DEMO.pdf (Page 9)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=9)",
+        "latency_seconds": 7.48,
+        "timestamp": "2026-10-22 23:11:00"
+    },
+    {
+        "id": "q15",
+        "question": "What does a Wiring Diagram show, and how is it different from a P&ID?",
+        "ground_truth_answer": "A wiring diagram shows circuit components as simplified shapes with power and signal wiring between devices, terminal blocks, and I/O cards. This differs from a P&ID, which shows pipes and the relative locations of instruments and equipment rather than wiring detail.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            10,
+            3
+        ],
+        "question_type": "multi_chunk",
+        "expected_intent": "COMPLEX",
+        "generated_answer": "**What a Wiring Diagram Shows**  \n- Displays **circuit components** as simplified symbols.  \n- Illustrates **power and signal wiring** that interconnects devices, terminal blocks, and input/output (I/O) cards.  \n- Focuses on the **electrical interconnections** of instrumentation rather than the physical layout of piping.\n\n**How It Differs from a P&ID**  \n- A **P&ID (Piping & Instrumentation Diagram)** depicts **pipes, process equipment, and the relative locations of instruments**, using schematic (unscaled) lines and control‑feature symbols to show functional relationships and interlocks.  \n- **Wiring diagrams** are concerned with **electrical wiring details**, while **P&IDs** convey **process flow, pipe routing, and instrument placement**.  \n- In short, wiring diagrams map **electrical connections**; P&IDs map **process and mechanical connections**.\n\n![Figure 6: Example wiring diagram for a pressure transmitter (PIT-3), a 24-volt level transmitter (LIT-6), and a 120-volt level transmitter (LIT-7).](http://localhost:8002/images/1/P&ID_DEMO/8a4506acca8d25afbd76f090d814036b00d1117de6f8ba1143b3bce517e99549.jpg)\n\n**Sources**  \n[View Source: P&ID_DEMO.pdf (Page 10)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=10)  \n[View Source: P&ID_DEMO.pdf (Page 3)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=3)",
+        "latency_seconds": 14.38,
+        "timestamp": "2026-10-22 23:11:27"
+    },
+    {
+        "id": "q16",
+        "question": "Which three instruments are wired together in the example Wiring Diagram (Figure 6)?",
+        "ground_truth_answer": "A pressure transmitter (PIT-3), a 24-volt level transmitter (LIT-6), and a 120-volt level transmitter (LIT-7).",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            10
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "The example wiring diagram (Figure 6) shows the following three instruments wired together:\n\n1. **Pressure transmitter – PIT‑3**  \n2. **24‑volt level transmitter – LIT‑6**  \n3. **120‑volt level transmitter – LIT‑7**\n\n![Figure 6: Example wiring diagram for a pressure transmitter (PIT-3), a 24-volt level transmitter (LIT-6), and a 120-volt level transmitter (LIT-7).](http://localhost:8002/images/1/P&ID_DEMO/8a4506acca8d25afbd76f090d814036b00d1117de6f8ba1143b3bce517e99549.jpg)\n\n[View Source: P&ID_DEMO.pdf (Page 10)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=10)",
+        "latency_seconds": 8.8,
+        "timestamp": "2026-10-22 22:35:16"
+    },
+    {
+        "id": "q17",
+        "question": "What is a SCADA Network Diagram and what does it depict?",
+        "ground_truth_answer": "Also called a SCADA architecture diagram, it is a block diagram showing the basic SCADA (supervisory control and data acquisition) architecture and the communication channels between devices, controllers, and computers.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            11
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**SCADA Network Diagram**\n\nA SCADA (Supervisory Control and Data Acquisition) network diagram—also called a SCADA architecture diagram—is a **block‑level schematic** that illustrates the overall SCADA system layout. It shows:\n\n- The **core components** such as field devices, remote terminal units (RTUs), programmable logic controllers (PLCs), and supervisory computers/servers.  \n- The **communication channels** (e.g., Ethernet, serial links, wireless) that interconnect these devices, controllers, and operator workstations.  \n- The **hierarchical flow of data** from sensors/actuators up to the central monitoring and control stations.\n\nUnlike a P&ID, the diagram **does not display the physical locations of instruments on the piping network** nor does it provide detailed control logic. Its purpose is to convey the **network topology and data pathways** within a SCADA system.\n\n![Figure 7: Example SCADA Network Diagram.](http://localhost:8002/images/1/P&ID_DEMO/62ba4a0d96eb20321e86600940a40b2440b0b16b531775abc3dd52491fac49fb.jpg)\n\n---\n\n**Source**: [View Source: P&ID_DEMO.pdf (Page 11)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=11)",
+        "latency_seconds": 10.78,
+        "timestamp": "2026-10-22 22:35:30"
+    },
+    {
+        "id": "q18",
+        "question": "How does a SCADA Network Diagram differ from a P&ID?",
+        "ground_truth_answer": "A SCADA network diagram lacks the locations of instruments on the piping network and does not indicate control details, unlike a P&ID.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            11,
+            3
+        ],
+        "question_type": "paraphrase",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**Key Differences Between a SCADA Network Diagram and a P&ID**\n\n| Aspect | SCADA Network Diagram | P&ID (Piping & Instrumentation Diagram) |\n|--------|-----------------------|------------------------------------------|\n| **Primary Focus** | Shows the **overall architecture** of the supervisory control system – how servers, workstations, PLCs/RTUs, and field devices are network‑connected. | Illustrates the **process flow** – piping, equipment, instrumentation, and control logic (interlocks, start‑stop sequences). |\n| **Level of Detail** | **Block‑level** representation of communication paths and network zones (e.g., LAN, DMZ, field‑bus). Does **not** display physical locations of instruments on the piping layout or detailed control logic. | **Schematic‑level** drawing with unscaled lines, standardized symbols for valves, pumps, sensors, and wiring. Shows **exact interconnections** and control relationships. |\n| **Typical Use** | Used by **control‑system engineers, IT/OT security teams** to plan, troubleshoot, and secure the data‑communication infrastructure. | Used by **process, controls, and electrical engineers** for design, construction, and operation of the process plant, including safety‑instrumented systems. |\n| **Information Conveyed** | Communication protocols, network segments, server/RTU locations, and data flow between devices. | Process flow paths, equipment identification (e.g., P‑4‑3 pump, FV‑4‑3 valve), interlock logic (e.g., valve opens when pump runs). |\n| **Visual Style** | Simple block diagram; often lacks physical plant layout. | Detailed schematic with symbols, line types, and sometimes tag numbers. |\n\n**Summary**  \nA SCADA network diagram is a high‑level block view of the **digital communication architecture** of a control system, while a P&ID is a detailed schematic that maps the **physical process equipment, piping, and instrument interconnections**. The SCADA diagram does not show where instruments sit on the pipe network or the specific control logic, whereas the P&ID explicitly depicts those relationships.\n\n**Sources**  \n- SCADA Network Diagram description: `[View Source: P&ID_DEMO.pdf (Page 11)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=11)`  \n- P&ID overview and purpose: `[View Source: P&ID_DEMO.pdf (Page 3)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=3)`",
+        "latency_seconds": 11.49,
+        "timestamp": "2026-10-22 23:11:50"
+    },
+    {
+        "id": "q19",
+        "question": "In the example SCADA diagram (Figure 7), what method connects the remote stations to the control server?",
+        "ground_truth_answer": "Serial-based radio communication.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            11
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**Connection Method**\n\nIn Figure 7 the remote SCADA stations are linked to the central control server through a **network communication channel (typically Ethernet/TCP‑IP)**. The diagram shows lines representing data links that carry telemetry and control information between the remote field devices and the server.\n\n![Figure 7: Example SCADA Network Diagram.](http://localhost:8002/images/1/P&ID_DEMO/62ba4a0d96eb20321e86600940a40b2440b0b16b531775abc3dd52491fac49fb.jpg)  \n*Source: https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-82r2.pdf*  \n\n[View Source: P&ID_DEMO.pdf (Page 11)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=11)",
+        "latency_seconds": 5.61,
+        "timestamp": "2026-10-22 22:35:45"
+    },
+    {
+        "id": "q20",
+        "question": "What three types of logic diagrams are mentioned in the document?",
+        "ground_truth_answer": "Ladder logic diagrams, binary logic diagrams, and Boolean logic diagrams (also called relay logic diagrams).",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            12
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "The document lists three types of logic diagrams:\n\n1. **Ladder logic diagrams**  \n2. **Binary logic diagrams**  \n3. **Boolean logic diagrams** (also called relay logic diagrams)\n\n[View Source: P&ID_DEMO.pdf (Page 12)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=12)",
+        "latency_seconds": 5.59,
+        "timestamp": "2026-10-22 23:12:08"
+    },
+    {
+        "id": "q21",
+        "question": "How do logic diagrams differ from P&IDs?",
+        "ground_truth_answer": "Logic diagrams convey control descriptions pictorially, but unlike P&IDs, they do not show the location of instruments on the piping and do not show communications wiring.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            12,
+            3
+        ],
+        "question_type": "multi_chunk",
+        "expected_intent": "COMPLEX",
+        "generated_answer": "**Key Differences Between Logic Diagrams and P&IDs**\n\n| Aspect | Logic Diagrams | Piping & Instrumentation Diagrams (P&IDs) |\n|--------|----------------|-------------------------------------------|\n| **Purpose** | Show *control logic* (how switches, relays, and controllers interact) in a pictorial form. | Show *process flow* and the functional relationship of piping, equipment, instrumentation, and control devices. |\n| **Content Focus** | Depicts ladder, binary, or Boolean (relay) logic symbols that describe control sequences. | Depicts piping routes, valves, pumps, sensors, and the interconnections that govern the process. |\n| **Physical Layout** | Does **not** indicate the physical location of instruments on the piping or the routing of communication wiring. | Shows the *location* of instruments, valves, and equipment on the piping layout (schematic, unscaled) and may include wiring interlocks. |\n| **Typical Use** | Used by controls engineers to design, review, and troubleshoot control logic programs. | Used by process, controls, and electrical engineers to understand process design, safety interlocks, and overall plant layout. |\n| **Symbols** | Logic symbols (contacts, coils, timers, etc.) specific to ladder/Boolean logic. | Standard P&ID symbols for pipes, fittings, instruments, and control devices (e.g., pumps, solenoid valves). |\n| **Interconnectivity Representation** | Shows logical relationships (e.g., “A AND B”, “A OR B”) but not physical wiring. | Shows actual interlocks and wiring paths (e.g., motor starter to solenoid) that implement the control logic. |\n\n**Bottom Line:**  \nLogic diagrams are *purely functional* representations of control sequences, while P&IDs are *process‑oriented* drawings that map out the physical plant layout, piping, and instrument locations, including the wiring that implements the control logic.  \n\n**Sources**  \n- Logic diagram description (Figures 8 & 9) – [View Source: P&ID_DEMO.pdf (Page 12)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=12)  \n- P&ID overview – [View Source: P&ID_DEMO.pdf (Page 3)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=3)",
+        "latency_seconds": 20.76,
+        "timestamp": "2026-10-22 23:12:40"
+    },
+    {
+        "id": "q22",
+        "question": "In the example Ladder Logic Diagram (Figure 8), what conditions must be met for the valve to receive an open control signal?",
+        "ground_truth_answer": "Either Valve.HmiOpen or Valve.AutoOpen must be true, AND Valve.Block must equal zero, AND Valve.Interlocks must equal zero.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            12
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**Answer**\n\nIn the ladder‑logic example shown in **Figure 8**, the valve will receive an **open‑control signal** only when **all of the input contacts that precede the valve coil on the same rung are closed (i.e., true)**.  \n\n- The rung’s left‑hand side contains a series of contacts that represent the required process conditions (e.g., pump‑running status, level‑switch indication, interlock signals).  \n- When every one of those contacts is energized, the rung is completed and the output coil that drives the valve is energized, delivering the 24 V (or appropriate) signal that opens the valve.  \n\nIn short, **the valve opens when every condition represented by the series contacts in that rung is satisfied**. If any contact is open (false), the rung is broken and the valve will not receive the open signal.\n\n---\n\n### Visual reference\n\n![Figure 8: Example Ladder Logic Diagram](http://localhost:8002/images/1/P&ID_DEMO/2a16c4abe1574ca69d0a3658810ae395aeaa26053565308f4833fb1fd5fa4b17.jpg)  \n*Source: https://www.osti.gov/servlets/purl/1468198*\n\n---\n\n**Source**: [View Source: P&ID_DEMO.pdf (Page 12)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=12)",
+        "latency_seconds": 10.81,
+        "timestamp": "2026-10-22 22:36:18"
+    },
+    {
+        "id": "q23",
+        "question": "What do the two Boolean logic diagrams in Figure 9 represent?",
+        "ground_truth_answer": "The left diagram shows an alternate \"A or B\" logic using parallel switches, and the right diagram shows an alternate \"A and B\" logic using switches in series.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            12
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "The two diagrams in **Figure 9** are classic Boolean (relay) logic symbols:\n\n| Diagram (left) | Diagram (right) |\n|----------------|-----------------|\n| **Alternate A or B** – an **OR** (inclusive‑OR) logic function. The output energizes when **either** input A **or** input B (or both) is true. | **Alternate A and B** – an **AND** logic function. The output energizes only when **both** inputs A **and** B are true simultaneously. |\n\nThese symbols are used in control schematics to illustrate how two conditions can be combined to drive a relay or other control device.\n\n![Figure 9: Boolean (or relay) logic diagrams showing alternate A or B (left), and alternate A and B (right).](http://localhost:8002/images/1/P&ID_DEMO/171a647b3ce82ff24745d8cde319fbd74313000185919866d810e9b3edc01948.jpg)\n\n**Source:** [View Source: P&ID_DEMO.pdf (Page 12)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=12)",
+        "latency_seconds": 6.04,
+        "timestamp": "2026-10-22 23:12:59"
+    },
+    {
+        "id": "q24",
+        "question": "Why are letter designations used on P&IDs instead of full text descriptions?",
+        "ground_truth_answer": "Because P&IDs are busy drawings with little space for lengthy descriptions and specifications, so letter abbreviations are used for device labels, control loops, and device functions instead.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            14
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "Letter designations are used on P&IDs because the drawings are **very busy and have limited space**. Full‑text descriptions would clutter the diagram, making it hard to read and interpret. By using concise letter abbreviations (e.g., “M” for Motor or Manway, “LT” for Level Transmitter), engineers can label devices, control loops, and functions clearly while keeping the drawing legible and compact. The legend or a table (often based on ISA 5.1) then defines each abbreviation for reference.  \n\n![Figure 10: Example P&ID with a legend defining letter designations. The level sensor 0011 sends a discrete signal to start pump P001 when a high level is reached. Source: https://commons.wikimedia.org/wiki/File:Pump\\_with\\_tank\\_pid\\_en.svg, modified, Con-struct, CC-BY-SA-3.0](http://localhost:8002/images/1/P&ID_DEMO/a009d7d3267f852d0f11247ff6b933c8df3854518580e6f44706e2ec0aabaaea.jpg)  \n\n**Key reasons**  \n- **Space efficiency:** Allows many devices and loops to be shown on a single sheet.  \n- **Readability:** Keeps the drawing uncluttered, enabling quick visual inspection.  \n- **Standardization:** Aligns with industry standards (e.g., ISA 5.1) that define common abbreviations, facilitating consistent interpretation across projects and organizations.  \n\n[View Source: P&ID_DEMO.pdf (Page 14)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=14)",
+        "latency_seconds": 6.95,
+        "timestamp": "2026-10-22 23:13:17"
+    },
+    {
+        "id": "q25",
+        "question": "In the Figure 10 legend, what does the letter designation \"PA\" stand for?",
+        "ground_truth_answer": "Pressure Action.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            14
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "The excerpt you provided for Figure 10 includes a discussion of the letter designations used on the drawing (e.g., “M” for Motor or Manway) and mentions that a full list of designations is given in **Table 2** (the ISA 5.1 letter‑designation table). However, the specific definition for the designation **“PA”** does not appear in the displayed legend or in the surrounding text for Figure 10.\n\n**What to do next**\n\n- Locate **Table 2** (the ISA 5.1 letter‑designation table) in the same drawing set or in the accompanying legend drawing; it will list “PA” and its meaning.\n- If the legend drawing itself includes a separate key for “PA,” review that page for the definition.\n\n**Source**\n\n- P&ID_DEMO.pdf, Page 14 – discussion of Figure 10 and letter designations (no “PA” entry shown).  \n  [View Source: P&ID_DEMO.pdf (Page 14)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=14)",
+        "latency_seconds": 8.12,
+        "timestamp": "2026-10-22 23:13:38"
+    },
+    {
+        "id": "q26",
+        "question": "In the Figure 10 legend, what does \"SH\" stand for?",
+        "ground_truth_answer": "Signal High.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            14
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**Answer**\n\nThe legend shown in Figure 10 (page 14 of the P&ID demo) lists the standard letter designations for instrument functions (e.g., **L** = Level, **P** = Pressure, **S** = Speed, **H** = Hand/Manual, etc.). In the excerpt provided, the combination **“SH”** is **not defined** in the legend or the accompanying table. Therefore, based on the available documentation, “SH” does not have an assigned meaning in this specific Figure 10 legend.\n\nIf you have a more detailed legend sheet or an extended table that includes “SH,” please refer to that document for the exact definition.\n\n---\n\n### Figure 10 (legend excerpt)\n\n![Figure 10: Example P&ID with a legend defining letter designations. The level sensor 0011 sends a discrete signal to start pump P001 when a high level is reached. Source: https://commons.wikimedia.org/wiki/File:Pump\\_with\\_tank\\_pid\\_en.svg, modified, Con-struct, CC-BY-SA-3.0](http://localhost:8002/images/1/P&ID_DEMO/a009d7d3267f852d0f11247ff6b933c8df3854518580e6f44706e2ec0aabaaea.jpg)\n\n---\n\n**Source**: [View Source: P&ID_DEMO.pdf (Page 14)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=14)",
+        "latency_seconds": 6.68,
+        "timestamp": "2026-10-22 23:13:56"
+    },
+    {
+        "id": "q27",
+        "question": "In Figure 10, what causes pump P001 to start?",
+        "ground_truth_answer": "The level sensor labeled 0011 sends a discrete signal that starts pump P001 when a high level is reached in the tank.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            14
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**Cause of Pump P001 Start (Figure 10)**  \nPump P001 is triggered to start when **level sensor 0011 detects a high liquid level** in the tank. The sensor then sends a **discrete (on/off) signal** to the pump’s control circuit, causing the pump to run.\n\n![Figure 10: Example P&ID with a legend defining letter designations. The level sensor 0011 sends a discrete signal to start pump P001 when a high level is reached. Source: https://commons.wikimedia.org/wiki/File:Pump\\_with\\_tank\\_pid\\_en.svg, modified, Con-struct, CC-BY-SA-3.0](http://localhost:8002/images/1/P&ID_DEMO/a009d7d3267f852d0f11247ff6b933c8df3854518580e6f44706e2ec0aabaaea.jpg)\n\n**Source**  \n[View Source: P&ID_DEMO.pdf (Page 14)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=14)",
+        "latency_seconds": 6.18,
+        "timestamp": "2026-10-22 22:36:57"
+    },
+    {
+        "id": "q28",
+        "question": "In Figure 10, the letter \"M\" appears twice with different meanings. What are they?",
+        "ground_truth_answer": "The \"M1\" label on the side of the tank refers to a Manway, while the \"M\" inside the circle near the pump refers to a Motor. The same letter can mean different things depending on context, so the design engineer must make sure this is clear or add clarifying notes.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            14
+        ],
+        "question_type": "distractor",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**Figure 10 – Letter “M” meanings**\n\n| Symbol on drawing | Meaning | Explanation |\n|-------------------|---------|-------------|\n| **M (inside a circle)** | **Motor** | The circular “M” is attached to the pump symbol, indicating the motor that drives the pump. |\n| **M1 (on the side of the tank)** | **Manway** | The “M1” tag is placed on the tank’s side opening, denoting a manway for personnel access. |\n\nThese two instances of the letter “M” serve distinct functions on the same P&ID: one identifies a motor, the other a manway.\n\n---\n\n![Figure 10: Example P&ID with a legend defining letter designations. The level sensor 0011 sends a discrete signal to start pump P001 when a high level is reached. Source: https://commons.wikimedia.org/wiki/File:Pump_with_tank_pid_en.svg, modified, Con-struct, CC-BY-SA-3.0](http://localhost:8002/images/1/P&ID_DEMO/a009d7d3267f852d0f11247ff6b933c8df3854518580e6f44706e2ec0aabaaea.jpg)\n\n**Source:** [View Source: P&ID_DEMO.pdf (Page 14)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=14)",
+        "latency_seconds": 10.91,
+        "timestamp": "2026-10-22 23:15:04"
+    },
+    {
+        "id": "q29",
+        "question": "Which industry standard provides the letter designations referenced in Table 2 of the document?",
+        "ground_truth_answer": "ISA 5.1.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            14
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "The letter designations shown in Table 2 are taken from the **ANSI/ISA 5.1 – “Instrumentation Symbols and Identification”** standard.  \n\n[View Source: P&ID_DEMO.pdf (Page 14)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=14)",
+        "latency_seconds": 6.11,
+        "timestamp": "2026-10-22 23:15:23"
+    },
+    {
+        "id": "q30",
+        "question": "In the instrument tag abbreviation system shown in Figure 11, what does the first letter of a tag represent, and what do the subsequent letters represent?",
+        "ground_truth_answer": "The first letter represents the row, which is the measured variable (e.g., Flow, Level, Pressure). Subsequent letters represent the columns, which are the instrument function (e.g., Transmitter, Indicator, Switch).",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            16
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**Answer**\n\n- **First letter of the tag:** Indicates the **measured variable** (the row in the abbreviation table).  \n- **Subsequent letters:** Indicate the **instrument function** (the column in the abbreviation table).\n\nThese definitions are illustrated in Figure 11 of the P&ID documentation.  \n\n[View Source: P&ID_DEMO.pdf (Page 16)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=16)",
+        "latency_seconds": 6.38,
+        "timestamp": "2026-10-22 23:16:18"
+    },
+    {
+        "id": "q31",
+        "question": "What does the abbreviation \"LS\" mean according to Figure 11's instrument tag table?",
+        "ground_truth_answer": "Level Switch.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            16
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**LS = Level Switch** – In Figure 11 the abbreviation “LS” denotes a Level Switch instrument tag.  \n\n[View Source: P&ID_DEMO.pdf (Page 16)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=16)",
+        "latency_seconds": 5.64,
+        "timestamp": "2026-10-22 23:17:13"
+    },
+    {
+        "id": "q32",
+        "question": "Why might the abbreviation \"LS\" be ambiguous if someone referenced Table 2 instead of Figure 11?",
+        "ground_truth_answer": "Because in Table 2, LS could mean either \"Level Switch\" or \"Level Stop,\" whereas Figure 11 defines LS specifically and only as \"Level Switch.\"",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            16
+        ],
+        "question_type": "distractor",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "The abbreviation **“LS”** can be ambiguous because its meaning depends on which reference table is being used:\n\n- **Figure 11** defines **LS** strictly as **“Level Switch.”**  \n- **Table 2** (the ISA 5.1 letter‑designation table) lists **LS** as a possible **“Level Switch”** **or** **“Level Stop.”**  \n\nIf a technician looks up **LS** in Table 2 instead of Figure 11, they might interpret the tag as a **Level Stop** rather than a Level Switch, leading to confusion about the device’s function and the required control logic.\n\n**Source:** [View Source: P&ID_DEMO.pdf (Page 16)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=16)",
+        "latency_seconds": 7.26,
+        "timestamp": "2026-10-22 23:17:52"
+    },
+    {
+        "id": "q33",
+        "question": "What is the instrument tag abbreviation for \"Flow Transmitter\"?",
+        "ground_truth_answer": "FT.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            16
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "The standard ISA‑S5.1 tag for a **Flow Transmitter** is **FT**.\n\n[View Source: P&ID_DEMO.pdf (Page 16)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=16)",
+        "latency_seconds": 5.01,
+        "timestamp": "2026-10-22 23:18:47"
+    },
+    {
+        "id": "q34",
+        "question": "What is the instrument tag abbreviation for \"Pressure Indicating Transmitter\"?",
+        "ground_truth_answer": "PIT.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            16
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**Instrument tag abbreviation:** **PIT** – *Pressure Indicating Transmitter*  \n\n[View Source: P&ID_DEMO.pdf (Page 10)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=10)",
+        "latency_seconds": 6.12,
+        "timestamp": "2026-10-22 22:37:55"
+    },
+    {
+        "id": "q35",
+        "question": "What is the instrument tag abbreviation for \"Differential Pressure Recorder\"?",
+        "ground_truth_answer": "PDR.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            16
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**Instrument tag abbreviation for “Differential Pressure Recorder”:** **`PDR`**  \n\n**Source:** P&ID_DEMO.pdf, Page 16 – table of instrument tag abbreviations where the “PD” (Differential Pressure) row lists **PDR** under the “RECDER” (Recorder) column.  \n\n[View Source: P&ID_DEMO.pdf (Page 16)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=16)",
+        "latency_seconds": 6.24,
+        "timestamp": "2026-10-22 23:19:43"
+    },
+    {
+        "id": "q36",
+        "question": "What is the instrument tag abbreviation for \"Temperature Controller\"?",
+        "ground_truth_answer": "TC.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            16
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "The instrument tag abbreviation for a **Temperature Controller** is **TC**.\n\n[View Source: P&ID_DEMO.pdf (Page 16)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=16)",
+        "latency_seconds": 6.16,
+        "timestamp": "2026-10-22 23:20:39"
+    },
+    {
+        "id": "q37",
+        "question": "What is the instrument tag abbreviation for \"Level Alarm\"?",
+        "ground_truth_answer": "LA.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            16
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**Instrument tag abbreviation for “Level Alarm”:** **`LA`**  \n\n[View Source: P&ID_DEMO.pdf (Page 16)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=16)",
+        "latency_seconds": 5.0,
+        "timestamp": "2026-10-22 23:21:33"
+    },
+    {
+        "id": "q38",
+        "question": "What is the instrument tag abbreviation for \"Conductivity Element\"?",
+        "ground_truth_answer": "CE.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            16
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**Instrument tag abbreviation:** **CE**  \n\n[View Source: P&ID_DEMO.pdf (Page 16)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=16)",
+        "latency_seconds": 4.85,
+        "timestamp": "2026-10-22 23:21:50"
+    },
+    {
+        "id": "q39",
+        "question": "What measured variable does the row abbreviation \"FF\" represent in the instrument tag table?",
+        "ground_truth_answer": "Flow Ratio.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            16
+        ],
+        "question_type": "paraphrase",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "The row abbreviation **“FF”** corresponds to the measured variable **“FLOW RATIO.”**  \n\n[View Source: P&ID_DEMO.pdf (Page 16)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=16)",
+        "latency_seconds": 5.86,
+        "timestamp": "2026-10-22 23:22:08"
+    },
+    {
+        "id": "q40",
+        "question": "What is the instrument tag abbreviation for \"Vibration Switch\"?",
+        "ground_truth_answer": "XVS.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            16
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "The instrument tag abbreviation for a **Vibration Switch** is **“VS”**.\n\n**Reference**  \n[View Source: P&ID_DEMO.pdf (Page 16)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=16)",
+        "latency_seconds": 5.93,
+        "timestamp": "2026-10-22 23:22:45"
+    },
+    {
+        "id": "q41",
+        "question": "What measured variable does \"XV\" represent in the instrument tag table, and how does it differ from plain \"X\"?",
+        "ground_truth_answer": "\"XV\" represents Vibration, while \"X\" alone represents an Unclassified measured variable — they are distinct rows in the table despite both starting with X.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            16
+        ],
+        "question_type": "distractor",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**Measured Variable**\n\n| Tag | Measured Variable (as shown in the table) |\n|-----|-------------------------------------------|\n| **XV** | **VIBRATION** |\n| **X**  | **UNCLASSIFIED** (a generic “catch‑all” category) |\n\n**How they differ**\n\n- **XV (Vibration)** – The “V” in the second position indicates the instrument function (e.g., sensor, transmitter, indicator, etc.) applied to a *vibration* measurement. This tag is used for devices that monitor mechanical vibration, such as accelerometers or vibration transducers, to detect equipment imbalance, misalignment, bearing wear, etc.\n\n- **X (Unclassified)** – The “X” alone represents a *catch‑all* or “unclassified” measured variable. It is used when the measurement does not fit into any of the defined categories (e.g., a custom or proprietary signal). The second‑letter function still applies, but the underlying variable is not specifically defined in the standard list.\n\nThus, **XV** is a specific, defined variable (vibration), whereas **X** is a generic placeholder for any variable that isn’t otherwise categorized.\n\n---\n\n**Source**  \n[View Source: P&ID_DEMO.pdf (Page 16)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=16)",
+        "latency_seconds": 7.32,
+        "timestamp": "2026-10-22 23:23:42"
+    },
+    {
+        "id": "q42",
+        "question": "Where are instrument control abbreviations typically placed relative to an instrument tag circle on a P&ID?",
+        "ground_truth_answer": "To the upper right of the instrument tag circle.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            17
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "Instrument control abbreviations are normally positioned **to the upper‑right of the instrument tag circle** on a P&ID.  \n\n[View Source: P&ID_DEMO.pdf (Page 17)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=17)",
+        "latency_seconds": 5.98,
+        "timestamp": "2026-10-22 22:39:01"
+    },
+    {
+        "id": "q43",
+        "question": "What does the instrument control abbreviation \"HOA\" stand for?",
+        "ground_truth_answer": "Hand/Off/Auto.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            18
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**HOA** = **Hand / Off / Auto** – the three‑position selector used to place equipment in manual (hand), shut‑off, or automatic control mode.\n\n![Figure 14: Selector/hand switch with HOA functions:](http://localhost:8002/images/1/P&ID_DEMO/8b9ed22a61a2db3a606a1cdb2dec7dfdbcd98c27fcff3b888069c049c15aa5db.jpg)\n\n**Sources**  \n- [View Source: P&ID_DEMO.pdf (Page 18)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=18)  \n- [View Source: P&ID_DEMO.pdf (Page 17)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=17)",
+        "latency_seconds": 6.27,
+        "timestamp": "2026-10-22 23:24:38"
+    },
+    {
+        "id": "q44",
+        "question": "What does \"HOR\" mean, and how is it different from \"HOA\"?",
+        "ground_truth_answer": "HOR stands for Hand/Off/Remote. It is similar to HOA, except the device can be controlled remotely — either automatically or by a remote user through a control panel or HMI software — rather than through local automated controls.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            18
+        ],
+        "question_type": "distractor",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "**HOR (Hand/Off/Remote)**  \n- **Hand** – The device is manually turned **ON** (or **OFF**) by the operator at the local switch.  \n- **Off** – The device is manually turned **OFF** with no automated control.  \n- **Remote** – The device is controlled from a distance, typically via a control panel, HMI (Human‑Machine Interface), or a remote‑site controller.  \n\n**HOA (Hand/Off/Auto)**  \n- **Hand** – Same as above: manual “ON” operation at the local switch.  \n- **Off** – Same as above: manual “OFF” operation.  \n- **Auto** – The device is operated automatically by the process control system (PLC, DCS, etc.) without direct operator intervention.  \n\n### Key Differences\n| Feature | HOR | HOA |\n|---------|-----|-----|\n| **Remote** | Device can be operated from a remote location (e.g., HMI, remote panel). | Not available; control is either manual (Hand) or automatic (Auto). |\n| **Auto** | Not provided; remote operation still requires an operator command (or remote‑initiated logic). | Device can run automatically based on control logic, set‑points, or interlocks. |\n| **Typical Use** | Applications where field operators need to start/stop equipment from a central control room or remote station. | Applications where equipment runs automatically under process control, but still allows local manual override. |\n\nBoth selectors are shown on P&IDs as standard instrument abbreviations:\n\n- **HOA** – Hand/Off/Auto (Figure 14)  \n- **HOR** – Hand/Off/Remote (listed in the abbreviation table on page 17)\n\n#### Visual reference for HOA (illustrates the selector switch layout)\n\n![Figure 14: Selector/hand switch with HOA functions:](http://localhost:8002/images/1/P&ID_DEMO/8b9ed22a61a2db3a606a1cdb2dec7dfdbcd98c27fcff3b888069c049c15aa5db.jpg)\n\n---\n\n**Sources**  \n- HOA definition and Figure 14: *P&ID_DEMO.pdf, Page 18* – [View Source](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=18)  \n- HOR definition (Hand/Off/Remote) listed in abbreviation table: *P&ID_DEMO.pdf, Page 17* – [View Source](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=17)",
+        "latency_seconds": 6.49,
+        "timestamp": "2026-10-22 23:24:56"
+    },
+    {
+        "id": "q48",
+        "question": "What is the simplest type of control device described in the document, and what are its two states?",
+        "ground_truth_answer": "The O/O (On/Off) switch, which has only two states: On and Off.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            17
+        ],
+        "question_type": "direct",
+        "expected_intent": "SIMPLE",
+        "generated_answer": "The document states that **the simplest control device is the O/O (On/Off) switch**, which has two possible states:\n\n- **On**\n- **Off**\n\n![Figure 13: O/O hand switch (HS) on a control panel, with On and Off functions. Source: https://commons.wikimedia.org/wiki/File:On-Off\\_Switch.jpg, Jszack, CC-BY-SA-2.5](http://localhost:8002/images/1/P&ID_DEMO/0e66ba3c7dd396ccff97b4e7bf0d3fb77ab3ea3a29a715954ac83c0d47a357f3.jpg)\n\n[View Source: P&ID_DEMO.pdf (Page 17)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=17)",
+        "latency_seconds": 7.22,
+        "timestamp": "2026-10-22 22:39:49"
+    },
+    {
+        "id": "q49",
+        "question": "In the HOA selector switch example (Figure 14), what happens in each of its three positions?",
+        "ground_truth_answer": "HAND turns the device on with no automated controls; OFF turns the device off with no automated controls; AUTO allows the device to be turned on and off automatically through automated controls.",
+        "source_file": "P&ID_DEMO.pdf",
+        "source_pages": [
+            18,
+            17
+        ],
+        "question_type": "multi_chunk",
+        "expected_intent": "COMPLEX",
+        "generated_answer": "**HOA (Hand/Off/Auto) selector switch – positions and function**\n\n| Position | What the switch does | Control mode |\n|----------|----------------------|--------------|\n| **HAND** | The connected device (e.g., motor, pump) is **ON** and runs continuously. | Manual – no automated logic or remote control intervenes. |\n| **OFF** | The device is **OFF** and will not run. | Manual – the equipment is held shut down regardless of any automatic signals. |\n| **AUTO** | The device is **controlled by the plant’s automation system** (PLC, DCS, HMI, etc.). It will start and stop according to the programmed logic. | Automatic – the selector hands control over to the control system. |\n\n![Figure 14: Selector/hand switch with HOA functions:](http://localhost:8002/images/1/P&ID_DEMO/8b9ed22a61a2db3a606a1cdb2dec7dfdbcd98c27fcff3b888069c049c15aa5db.jpg)\n\n**Source**  \n[View Source: P&ID_DEMO.pdf (Page 18)](http://localhost:8002/documents/1/P&ID_DEMO.pdf#page=18)",
+        "latency_seconds": 6.45,
+        "timestamp": "2026-10-22 22:39:58"
+    }
+]

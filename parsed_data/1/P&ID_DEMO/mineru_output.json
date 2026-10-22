@@ -1,0 +1,1877 @@
+[
+  {
+    "type": "text",
+    "text": "PDH Academy",
+    "bbox": [
+      235,
+      63,
+      759,
+      136
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "Piping and Instrumentation Diagrams",
+    "text_level": 1,
+    "bbox": [
+      202,
+      217,
+      754,
+      297
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "by",
+    "bbox": [
+      460,
+      400,
+      500,
+      425
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "Mark Ludwigson, P.E., PMP",
+    "bbox": [
+      294,
+      479,
+      665,
+      506
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "Course 462 4 PDH (4 Hours)",
+    "bbox": [
+      369,
+      547,
+      589,
+      608
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "PO Box 449",
+    "bbox": [
+      398,
+      750,
+      562,
+      773
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "Pewaukee, WI 53072",
+    "bbox": [
+      341,
+      776,
+      617,
+      801
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "(888) 564 - 9098",
+    "bbox": [
+      372,
+      803,
+      588,
+      829
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "support@pdhacademy.com",
+    "bbox": [
+      302,
+      832,
+      658,
+      859
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "page_number",
+    "text": "Page 1 of 42",
+    "bbox": [
+      805,
+      954,
+      885,
+      967
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "Piping and Instrumentation Diagrams",
+    "text_level": 1,
+    "bbox": [
+      333,
+      102,
+      665,
+      122
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "Course Outline:",
+    "bbox": [
+      112,
+      154,
+      258,
+      174
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "Overview of P&IDs",
+    "bbox": [
+      111,
+      194,
+      287,
+      213
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "Other Types of Diagrams",
+    "bbox": [
+      111,
+      214,
+      341,
+      234
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "Industry Standards",
+    "bbox": [
+      112,
+      234,
+      289,
+      255
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "Letter Designations",
+    "bbox": [
+      112,
+      255,
+      292,
+      273
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "Symbols",
+    "bbox": [
+      112,
+      275,
+      199,
+      295
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "Control Loops",
+    "bbox": [
+      112,
+      295,
+      245,
+      314
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "Helpful References",
+    "bbox": [
+      111,
+      315,
+      289,
+      334
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "Examination",
+    "bbox": [
+      112,
+      335,
+      232,
+      354
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "header",
+    "text": "462.pdf",
+    "bbox": [
+      879,
+      45,
+      949,
+      64
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "footer",
+    "text": "Copyright® 2021 Mark Ludwigson",
+    "bbox": [
+      379,
+      924,
+      614,
+      941
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "page_number",
+    "text": "Page 2 of 42",
+    "bbox": [
+      728,
+      924,
+      831,
+      943
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "Piping and Instrumentation Diagrams",
+    "text_level": 1,
+    "bbox": [
+      333,
+      102,
+      665,
+      122
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "Overview of P&IDs",
+    "text_level": 2,
+    "bbox": [
+      112,
+      154,
+      295,
+      172
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "Piping and Instrumentation Diagrams (P&IDs) are drawings showing piping and communications as schematic (unscaled) lines and control features as symbols. P&IDs illustrate the functional relationship of piping, instrumentation, equipment, and controllers. They are usually located in the instrumentation drawings in a project drawing set. P&IDs are commonly made by process engineers, controls engineers, and electrical engineers.",
+    "bbox": [
+      111,
+      188,
+      877,
+      309
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "The main purpose of a P&ID is to indicate if devices are automatically controlled, and if so, how they are interlocked with instruments. P&IDs convey the interconnectivity of automated components. See Figure 1 for an example in which there is interconnectivity between a pump (P-4-3) and a solenoid valve (FV-4-3) for controlling seal water to the mechanical seals on the pump. To conserve water, the seal water should only flow when the pump is operating. The wiring from the motor starter (MS) to the solenoid (S) allows for the automated control of the seal water.",
+    "bbox": [
+      111,
+      328,
+      875,
+      469
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "image",
+    "img_path": "images/d787081a4a3cc7a9a12e458e6fc7606d65db8291c4db70abdbfc170f751f5650.jpg",
+    "image_caption": [
+      "Figure 1: Example P&ID for a pump and a valve."
+    ],
+    "image_footnote": [],
+    "bbox": [
+      323,
+      491,
+      676,
+      718
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "For Figure 1, the control description is as follows: Valve FV-4-3 shall open when pump P-4-3 turns on. Valve FV-4-3 shall close when pump P-4-3 turns off.",
+    "bbox": [
+      112,
+      771,
+      633,
+      832
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "footer",
+    "text": "Copyright® 2021 Mark Ludwigson",
+    "bbox": [
+      380,
+      924,
+      614,
+      940
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "page_number",
+    "text": "Page 3 of 42",
+    "bbox": [
+      728,
+      924,
+      831,
+      943
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "Piping and Instrumentation Diagrams",
+    "text_level": 1,
+    "bbox": [
+      333,
+      102,
+      665,
+      122
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "P&IDs are helpful for the following reasons, organized by project phase:",
+    "bbox": [
+      111,
+      154,
+      743,
+      174
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "• Design:",
+    "text_level": 2,
+    "bbox": [
+      142,
+      195,
+      246,
+      213
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "Helps coordinate instrumentation, controls, and wiring details between process engineers, controls engineers, and electrical engineers.",
+    "bbox": [
+      199,
+      215,
+      846,
+      255
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "Helps to create detailed control descriptions and control loops.",
+    "bbox": [
+      200,
+      256,
+      779,
+      275
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "Used to develop Hazard and Operability Studies (HAZOP).",
+    "bbox": [
+      199,
+      276,
+      748,
+      295
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "• Procurement:",
+    "text_level": 2,
+    "bbox": [
+      142,
+      297,
+      297,
+      315
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "Specifies instrumentation and controls details needed for obtaining quotes.",
+    "bbox": [
+      200,
+      316,
+      816,
+      354
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "Provides control details needed for estimating programming costs.",
+    "bbox": [
+      200,
+      357,
+      812,
+      376
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "• Construction:",
+    "text_level": 2,
+    "bbox": [
+      142,
+      378,
+      295,
+      396
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "o Specifies details needed for purchasing and installing instruments, electrical devices, and controls components.",
+    "bbox": [
+      200,
+      398,
+      812,
+      436
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "Provides details needed for the programming of controllers.",
+    "bbox": [
+      199,
+      439,
+      753,
+      457
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "Helps confirm that communication wires have been terminated correctly.",
+    "bbox": [
+      199,
+      458,
+      862,
+      477
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "Field changes can be easily recorded on as-built drawings.",
+    "bbox": [
+      199,
+      478,
+      750,
+      497
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "Utilized during startup and training to understand the function of the system or process.",
+    "bbox": [
+      200,
+      498,
+      823,
+      537
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "• Operation:",
+    "text_level": 2,
+    "bbox": [
+      142,
+      540,
+      271,
+      558
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "As-built P&IDs provide control details needed for making operation decisions.",
+    "bbox": [
+      200,
+      559,
+      816,
+      598
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "P&ID format is easy to understand compared to programing code or written descriptions.",
+    "bbox": [
+      200,
+      599,
+      826,
+      637
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "Operators can read the P&IDs and understand operations options.",
+    "bbox": [
+      199,
+      640,
+      813,
+      659
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "Helpful for a Job Hazard Analysis (JHA).",
+    "bbox": [
+      200,
+      660,
+      588,
+      679
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "Helps when preparing for system modifications as part of Management of Change (MOC).",
+    "bbox": [
+      199,
+      680,
+      875,
+      719
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "header",
+    "text": "462.pdf",
+    "bbox": [
+      879,
+      45,
+      947,
+      63
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "footer",
+    "text": "Copyright® 2021 Mark Ludwigson",
+    "bbox": [
+      379,
+      924,
+      614,
+      940
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "page_number",
+    "text": "Page 4 of 42",
+    "bbox": [
+      728,
+      924,
+      831,
+      943
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "Piping and Instrumentation Diagrams",
+    "text_level": 1,
+    "bbox": [
+      333,
+      102,
+      665,
+      122
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "Typical steps to create a P&ID are as follows:",
+    "bbox": [
+      112,
+      155,
+      516,
+      172
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "1. Block flow diagram is created.",
+    "bbox": [
+      140,
+      174,
+      441,
+      193
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "2. Process flow diagram (PFD) is created.",
+    "bbox": [
+      140,
+      194,
+      519,
+      213
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "3. High-level control descriptions are written.",
+    "bbox": [
+      140,
+      214,
+      544,
+      233
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "4. Draft P&IDs are created using process flow diagrams as backgrounds.",
+    "bbox": [
+      140,
+      234,
+      790,
+      253
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "5. Areas are drawn at the top of P&IDs for controllers, MCCs (motor control centers), and/or SCADA (supervisory control and data acquisition).",
+    "bbox": [
+      140,
+      255,
+      810,
+      294
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "6. Symbols and labels are added to P&IDs for control features.",
+    "bbox": [
+      140,
+      295,
+      702,
+      313
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "7. Wiring is drawn on P&IDs to connect electrical devices with controllers, MCCs, and/or SCADA.",
+    "bbox": [
+      142,
+      315,
+      859,
+      352
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "8. Detailed control descriptions are completed.",
+    "bbox": [
+      140,
+      354,
+      562,
+      375
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "9. Control loops are defined, typically in a table format.",
+    "bbox": [
+      140,
+      376,
+      630,
+      393
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "10. Identification numbers on P&IDs are matched with control descriptions and control loops.",
+    "bbox": [
+      142,
+      395,
+      833,
+      433
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "11.Quality review performed and corrections made.",
+    "bbox": [
+      142,
+      435,
+      596,
+      455
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "page_number",
+    "text": "462.pdf",
+    "bbox": [
+      879,
+      45,
+      947,
+      63
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "footer",
+    "text": "Copyright® 2021 Mark Ludwigson",
+    "bbox": [
+      379,
+      924,
+      614,
+      940
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "page_number",
+    "text": "Page 5 of 42",
+    "bbox": [
+      728,
+      924,
+      831,
+      943
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "Other Types of Diagrams",
+    "text_level": 2,
+    "bbox": [
+      112,
+      155,
+      354,
+      174
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "text",
+    "text": "Piping and Instrumentation Diagrams are also called Process and Instrumentation Diagrams since the focus is more on the process than the piping. Both are referred to as P&IDs. P&IDs are related to the following other types of engineering diagrams.",
+    "bbox": [
+      111,
+      189,
+      861,
+      250
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "text",
+    "text": "Block Flow Diagram",
+    "text_level": 2,
+    "bbox": [
+      112,
+      263,
+      295,
+      281
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "text",
+    "text": "In the planning stage or early in design, a block flow diagram is commonly made by a process engineer. Block flow diagrams show the main processes as rectangles or circles with lines and arrows for the main flow paths. See Figure 2 for an example of a block flow diagram for a water treatment system.",
+    "bbox": [
+      111,
+      281,
+      864,
+      361
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "image",
+    "img_path": "images/71b6cc1b9b4bbc9dd3be1022afc5ea572da757131641eeab13b0dceea41e16b1.jpg",
+    "image_caption": [
+      "Figure 2: Example of a block flow diagram"
+    ],
+    "image_footnote": [
+      "Source: “Arsenic Removal from Drinking Water by Ion Exchange and Activated Alumina Plants”, EPA 600/R-00/088"
+    ],
+    "bbox": [
+      191,
+      372,
+      807,
+      856
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "header",
+    "text": "Piping and Instrumentation Diagrams",
+    "bbox": [
+      333,
+      102,
+      665,
+      122
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "footer",
+    "text": "Copyright® 2021 Mark Ludwigson",
+    "bbox": [
+      379,
+      924,
+      614,
+      940
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "page_number",
+    "text": "Page 6 of 42",
+    "bbox": [
+      728,
+      924,
+      831,
+      943
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "text",
+    "text": "Piping and Instrumentation Diagrams",
+    "text_level": 1,
+    "bbox": [
+      330,
+      102,
+      660,
+      122
+    ],
+    "page_idx": 6
+  },
+  {
+    "type": "text",
+    "text": "Process Flow Diagram",
+    "text_level": 2,
+    "bbox": [
+      112,
+      154,
+      318,
+      172
+    ],
+    "page_idx": 6
+  },
+  {
+    "type": "text",
+    "text": "Process flow diagrams (PFDs) are created by process or mechanical engineers early in the design stage. A PFD is a drawing with lines for piping and symbols for major components such as pumps, tanks, mixers, and flow meters. Ideally, all major components should be identified, including instrumentation. See Figures 3 and 4 for examples.",
+    "bbox": [
+      111,
+      174,
+      879,
+      275
+    ],
+    "page_idx": 6
+  },
+  {
+    "type": "text",
+    "text": "PFDs are often given to electrical and controls engineers to create P&IDs. PFDs are often used as the background in CAD for creating the P&IDs. Control and communication details are added to the PFD backgrounds to make P&IDs.",
+    "bbox": [
+      111,
+      295,
+      849,
+      349
+    ],
+    "page_idx": 6
+  },
+  {
+    "type": "image",
+    "img_path": "images/7d23cb090f45f104041472a4ed7b1e64d8ee36909100bacdca677286d8ebfbee.jpg",
+    "image_caption": [
+      "Figure 3: Example PFD with basic features. This drawing could be a starting point for creating a P&ID with control and communication details."
+    ],
+    "image_footnote": [
+      "Source: www.epa.gov/sites/default/files/2019-07/documents/wbs-ixclo4-documentation-june-2019.pdf (public domain)"
+    ],
+    "bbox": [
+      122,
+      367,
+      879,
+      717
+    ],
+    "page_idx": 6
+  },
+  {
+    "type": "footer",
+    "text": "Copyright® 2021 Mark Ludwigson",
+    "bbox": [
+      380,
+      924,
+      614,
+      940
+    ],
+    "page_idx": 6
+  },
+  {
+    "type": "page_number",
+    "text": "Page 7 of 42",
+    "bbox": [
+      728,
+      924,
+      831,
+      943
+    ],
+    "page_idx": 6
+  },
+  {
+    "type": "image",
+    "img_path": "images/e9aae23e90510099c8c1bd97af0107540486aed531538355366d4e5a566d2269.jpg",
+    "image_caption": [
+      "Figure 4: Example PFD with details such as pipe size, fluid type and motorized/automated valves shown with an “M” in a box."
+    ],
+    "image_footnote": [],
+    "bbox": [
+      171,
+      154,
+      841,
+      498
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "It is common for a legend drawing to be included with a drawing set to define the symbols, abbreviations, line types, shading, etc., utilized on the PFDs and P&IDs. Sometimes there are common legend drawings and sometimes there are separate legend drawings for PFDs and P&IDs.",
+    "bbox": [
+      111,
+      590,
+      836,
+      662
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "header",
+    "text": "Piping and Instrumentation Diagrams",
+    "bbox": [
+      333,
+      102,
+      665,
+      122
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "footer",
+    "text": "Copyright® 2021 Mark Ludwigson",
+    "bbox": [
+      380,
+      924,
+      614,
+      941
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "page_number",
+    "text": "Page 8 of 42",
+    "bbox": [
+      728,
+      924,
+      831,
+      943
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "Piping and Instrumentation Diagrams",
+    "text_level": 1,
+    "bbox": [
+      333,
+      102,
+      665,
+      122
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "text",
+    "text": "Instrument Schematic",
+    "text_level": 2,
+    "bbox": [
+      112,
+      155,
+      312,
+      172
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "text",
+    "text": "Instrument schematics (or diagrams) are detailed drawings for particular instruments. They show wiring details with some control logic notes that pertain only to that instrument. See Figure 5 for an example. Instrument schematics differ from a P&ID which shows the interconnectivity of various instruments, equipment, and panels.",
+    "bbox": [
+      109,
+      174,
+      857,
+      256
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "image",
+    "img_path": "images/9f499b4b8ab4bb81161303b1d1efa036f8c232c0bc6673d1452bda7e1ef34166.jpg",
+    "image_caption": [
+      "Figure 5: Example instrument schematic for a flow meter"
+    ],
+    "image_footnote": [],
+    "bbox": [
+      258,
+      272,
+      728,
+      502
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "header",
+    "text": "462.pdf",
+    "bbox": [
+      879,
+      45,
+      949,
+      64
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "footer",
+    "text": "Copyright® 2021 Mark Ludwigson",
+    "bbox": [
+      379,
+      924,
+      614,
+      941
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "page_number",
+    "text": "Page 9 of 42",
+    "bbox": [
+      728,
+      924,
+      831,
+      943
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "text",
+    "text": "Piping and Instrumentation Diagrams",
+    "text_level": 1,
+    "bbox": [
+      333,
+      102,
+      665,
+      122
+    ],
+    "page_idx": 9
+  },
+  {
+    "type": "text",
+    "text": "Wiring Diagram",
+    "text_level": 2,
+    "bbox": [
+      112,
+      154,
+      258,
+      172
+    ],
+    "page_idx": 9
+  },
+  {
+    "type": "text",
+    "text": "A wiring diagram shows circuit components as simplified shapes with power and signal wiring between the devices, terminal blocks, and input/output (l/O) cards. See Figure 6 for an example. This differs from P&IDs which show pipes and the relative locations of instruments and equipment.",
+    "bbox": [
+      109,
+      174,
+      872,
+      255
+    ],
+    "page_idx": 9
+  },
+  {
+    "type": "image",
+    "img_path": "images/8a4506acca8d25afbd76f090d814036b00d1117de6f8ba1143b3bce517e99549.jpg",
+    "image_caption": [
+      "Figure 6: Example wiring diagram for a pressure transmitter (PIT-3), a 24-volt level transmitter (LIT-6), and a 120-volt level transmitter (LIT-7)."
+    ],
+    "image_footnote": [],
+    "bbox": [
+      163,
+      275,
+      802,
+      637
+    ],
+    "page_idx": 9
+  },
+  {
+    "type": "header",
+    "text": "462.pdf",
+    "bbox": [
+      879,
+      44,
+      949,
+      64
+    ],
+    "page_idx": 9
+  },
+  {
+    "type": "footer",
+    "text": "Copyright® 2021 Mark Ludwigson",
+    "bbox": [
+      379,
+      924,
+      614,
+      941
+    ],
+    "page_idx": 9
+  },
+  {
+    "type": "page_number",
+    "text": "Page 10 of 42",
+    "bbox": [
+      717,
+      924,
+      831,
+      943
+    ],
+    "page_idx": 9
+  },
+  {
+    "type": "text",
+    "text": "SCADA Network Diagram",
+    "text_level": 2,
+    "bbox": [
+      112,
+      154,
+      346,
+      172
+    ],
+    "page_idx": 10
+  },
+  {
+    "type": "text",
+    "text": "A SCADA (supervisory control and data acquisition) network diagram, also called a SCADA architecture diagram, is a block diagram showing the basic SCADA architecture and communication channels between devices, controllers, and computers. This differs from a P&ID because it lacks the locations of instruments on the piping network and it does not indicate control details. See Figure 7 for an example.",
+    "bbox": [
+      111,
+      174,
+      883,
+      275
+    ],
+    "page_idx": 10
+  },
+  {
+    "type": "image",
+    "img_path": "images/62ba4a0d96eb20321e86600940a40b2440b0b16b531775abc3dd52491fac49fb.jpg",
+    "image_caption": [
+      "Figure 7: Example SCADA Network Diagram."
+    ],
+    "image_footnote": [
+      "Source: https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-82r2.pdf"
+    ],
+    "bbox": [
+      200,
+      292,
+      805,
+      695
+    ],
+    "page_idx": 10
+  },
+  {
+    "type": "header",
+    "text": "Piping and Instrumentation Diagrams",
+    "bbox": [
+      333,
+      102,
+      663,
+      122
+    ],
+    "page_idx": 10
+  },
+  {
+    "type": "footer",
+    "text": "Copyright® 2021 Mark Ludwigson",
+    "bbox": [
+      380,
+      924,
+      614,
+      940
+    ],
+    "page_idx": 10
+  },
+  {
+    "type": "page_number",
+    "text": "Page 11 of 42",
+    "bbox": [
+      718,
+      924,
+      831,
+      943
+    ],
+    "page_idx": 10
+  },
+  {
+    "type": "text",
+    "text": "Piping and Instrumentation Diagrams",
+    "text_level": 2,
+    "bbox": [
+      333,
+      102,
+      665,
+      122
+    ],
+    "page_idx": 11
+  },
+  {
+    "type": "text",
+    "text": "Logic Diagram",
+    "text_level": 2,
+    "bbox": [
+      112,
+      154,
+      248,
+      172
+    ],
+    "page_idx": 11
+  },
+  {
+    "type": "text",
+    "text": "Types of logic diagrams included ladder logic diagrams, binary logic diagrams, and Boolean logic diagrams (also called relay logic diagrams). See Figures 8 and 9 for examples. Logic diagrams convey control descriptions pictorially. This differs from a P&ID because it does not show the location of instruments on the piping and does not show communications wiring.",
+    "bbox": [
+      111,
+      174,
+      866,
+      275
+    ],
+    "page_idx": 11
+  },
+  {
+    "type": "image",
+    "img_path": "images/2a16c4abe1574ca69d0a3658810ae395aeaa26053565308f4833fb1fd5fa4b17.jpg",
+    "image_caption": [
+      "Figure 8: Example Ladder Logic Diagram"
+    ],
+    "image_footnote": [
+      "Source: https://www.osti.gov/servlets/purl/1468198"
+    ],
+    "bbox": [
+      196,
+      299,
+      797,
+      547
+    ],
+    "page_idx": 11
+  },
+  {
+    "type": "image",
+    "img_path": "images/171a647b3ce82ff24745d8cde319fbd74313000185919866d810e9b3edc01948.jpg",
+    "image_caption": [
+      "Figure 9: Boolean (or relay) logic diagrams showing alternate A or B (left), and alternate A and B (right)."
+    ],
+    "image_footnote": [
+      "https://commons.wikimedia.org/wiki/File:Switch\\_alternate\\_and\\_or.png, Copyright ©Dysprosia"
+    ],
+    "bbox": [
+      250,
+      641,
+      750,
+      743
+    ],
+    "page_idx": 11
+  },
+  {
+    "type": "header",
+    "text": "462.pdf",
+    "bbox": [
+      879,
+      45,
+      947,
+      63
+    ],
+    "page_idx": 11
+  },
+  {
+    "type": "footer",
+    "text": "Copyright® 2021 Mark Ludwigson",
+    "bbox": [
+      380,
+      924,
+      614,
+      940
+    ],
+    "page_idx": 11
+  },
+  {
+    "type": "page_number",
+    "text": "Page 12 of 42",
+    "bbox": [
+      718,
+      924,
+      831,
+      943
+    ],
+    "page_idx": 11
+  },
+  {
+    "type": "text",
+    "text": "Piping and Instrumentation Diagrams",
+    "text_level": 1,
+    "bbox": [
+      333,
+      102,
+      665,
+      122
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "text",
+    "text": "Industry Standards",
+    "text_level": 2,
+    "bbox": [
+      112,
+      155,
+      299,
+      174
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "text",
+    "text": "There are numerous standards developed for creating P&IDs. The most common standard is ANSI/ISA 5.1 entitled “Instrumentation Symbols and Identification”. A summary of common standards is provided in Table 1.",
+    "bbox": [
+      111,
+      194,
+      823,
+      256
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "table",
+    "img_path": "images/7ec8cf5ec876ef7eb2e52429f124501edbbf4fc06a6127d5ac48f497730aef5f.jpg",
+    "table_caption": [],
+    "table_footnote": [],
+    "table_body": "<table><tr><td rowspan=1 colspan=5>Table 1: Summary of Standards for P&amp;IDs</td></tr><tr><td rowspan=1 colspan=1>Standard No.</td><td rowspan=1 colspan=1>Title</td><td rowspan=1 colspan=1>Pages</td><td rowspan=1 colspan=1>Sector</td><td rowspan=1 colspan=1>Topics Covered</td></tr><tr><td rowspan=1 colspan=1>ANSI/ISA 5.1</td><td rowspan=1 colspan=1>Instrumentation Symbolsand Identification</td><td rowspan=1 colspan=1>128</td><td rowspan=1 colspan=1>All</td><td rowspan=1 colspan=1>Identification Letters TableGraphic SymbolsSymbol Dimensions</td></tr><tr><td rowspan=1 colspan=1>ISA 5.3</td><td rowspan=1 colspan=1>Graphic Symbols forDistributed Control / SharedDisplay Instrumentation,Logic and ComputerSystems</td><td rowspan=1 colspan=1>79</td><td rowspan=1 colspan=1>ComputerSCADA</td><td rowspan=1 colspan=1>SymbolsIdentificationAlarmsComputer Symbolsand Logic</td></tr><tr><td rowspan=1 colspan=1>IEC 60617</td><td rowspan=1 colspan=1>Graphical Symbols forDiagrams</td><td rowspan=1 colspan=1>1900</td><td rowspan=1 colspan=1>All</td><td rowspan=1 colspan=1>Database of Symbols</td></tr><tr><td rowspan=1 colspan=1>ISO 10628</td><td rowspan=1 colspan=1>Diagrams for the Chemicaland Petrochemical Industry</td><td rowspan=1 colspan=1>22</td><td rowspan=1 colspan=1>ChemicalPetro</td><td rowspan=1 colspan=1>Letter Symbols</td></tr><tr><td rowspan=1 colspan=1>ISO 14617Parts 1 to 15</td><td rowspan=1 colspan=1>Graphical Symbols forDiagrams</td><td rowspan=1 colspan=1>300</td><td rowspan=1 colspan=1>All</td><td rowspan=1 colspan=1>Functional LinksControl LoopsProcessing FunctionsLogic Functions</td></tr><tr><td rowspan=1 colspan=1>ISO 15519Parts 1 &amp; 2</td><td rowspan=1 colspan=1>Specification for Diagramsfor Process Industry</td><td rowspan=1 colspan=1>25</td><td rowspan=1 colspan=1>Process</td><td rowspan=1 colspan=1>Block Diagrams, PFDs,P&amp;ID LayoutConnecting LinesInscription, Scale, Limits</td></tr><tr><td rowspan=1 colspan=1>PIP PIC001</td><td rowspan=1 colspan=1>Piping and InstrumentationDiagram DocumentationCriteria</td><td rowspan=1 colspan=1>79</td><td rowspan=1 colspan=1>All</td><td rowspan=1 colspan=1>Industry StandardsEquipment, Piping,Instrumentation, Controls</td></tr><tr><td rowspan=1 colspan=1>EN 62424</td><td rowspan=1 colspan=1>Representation of ProcessControl Engineering</td><td rowspan=1 colspan=1>175</td><td rowspan=1 colspan=1>All</td><td rowspan=1 colspan=1>P&amp;ID Software andControls Interfaces</td></tr></table>",
+    "bbox": [
+      114,
+      275,
+      900,
+      810
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "text",
+    "text": "It is common for companies to have their own library of standard symbols and abbreviations. These unique libraries typically include many symbols from reference standards, but also have unique symbols and abbreviations based on the unique systems being designed.",
+    "bbox": [
+      111,
+      828,
+      849,
+      909
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "header",
+    "text": "462.pdf",
+    "bbox": [
+      879,
+      45,
+      947,
+      64
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "footer",
+    "text": "Copyright® 2021 Mark Ludwigson",
+    "bbox": [
+      379,
+      924,
+      614,
+      941
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "page_number",
+    "text": "Page 13 of 42",
+    "bbox": [
+      718,
+      924,
+      831,
+      943
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "text",
+    "text": "Piping and Instrumentation Diagrams",
+    "text_level": 1,
+    "bbox": [
+      333,
+      102,
+      663,
+      121
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "text",
+    "text": "Letter Designations",
+    "text_level": 2,
+    "bbox": [
+      112,
+      155,
+      303,
+      172
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "text",
+    "text": "P&IDs are busy drawings without a lot of space for lengthy descriptions and specifications. Therefore, letter abbreviations (called letter designations) are used for device labels, control loops, and device functions. See Figure 10 for an example of a P&ID with the letter designations defined in a legend.",
+    "bbox": [
+      111,
+      194,
+      856,
+      275
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "image",
+    "img_path": "images/a009d7d3267f852d0f11247ff6b933c8df3854518580e6f44706e2ec0aabaaea.jpg",
+    "image_caption": [
+      "Figure 10: Example P&ID with a legend defining letter designations. The level sensor 0011 sends a discrete signal to start pump P001 when a high level is reached.",
+      "Source: https://commons.wikimedia.org/wiki/File:Pump\\_with\\_tank\\_pid\\_en.svg, modified, Con-struct, CC-BY-SA-3.0"
+    ],
+    "image_footnote": [],
+    "bbox": [
+      130,
+      292,
+      870,
+      569
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "text",
+    "text": "In Figure 10, “M” could mean Motor or Manway. Based on the context, the M1 on the side of the tank is the Manway, and the M in the circle is a Motor for a pump. It is up to the design engineer to make sure any letters used for multiple designations are sufficiently clear on the drawings. Notes can be added to clarify any unclear letter designations.",
+    "bbox": [
+      111,
+      690,
+      869,
+      790
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "text",
+    "text": "It is common to utilize a table format for identifying the letter designations for instrument functions (the two or three letters shown inside circles). Table 2 provides the letter designations per ISA 5.1. Many companies develop a standard letter designation table based on common usage. This table can be included with the symbol definitions on a common legend drawing for the P&IDs.",
+    "bbox": [
+      111,
+      810,
+      880,
+      911
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "footer",
+    "text": "Copyright® 2021 Mark Ludwigson",
+    "bbox": [
+      379,
+      924,
+      614,
+      940
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "page_number",
+    "text": "Page 14 of 42",
+    "bbox": [
+      718,
+      924,
+      831,
+      943
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "text",
+    "text": "Piping and Instrumentation Diagrams",
+    "text_level": 2,
+    "bbox": [
+      333,
+      102,
+      665,
+      122
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "table",
+    "img_path": "images/2816fced8b937eff1e2580e00d7c69e34c5993986ce190115f6655bb03966bb6.jpg",
+    "table_caption": [],
+    "table_footnote": [],
+    "table_body": "<table><tr><td rowspan=1 colspan=6>Table 2: Common Letter Designations in P&amp;IDs for Instrument Functions</td></tr><tr><td rowspan=2 colspan=1>Letter</td><td rowspan=1 colspan=2>First Letter</td><td rowspan=1 colspan=3>Additional Letter(s)</td></tr><tr><td rowspan=1 colspan=1>Measured Value</td><td rowspan=1 colspan=1>Modifier</td><td rowspan=1 colspan=1>Readout orPassive Function</td><td rowspan=1 colspan=1>Output orActive Function</td><td rowspan=1 colspan=1>FunctionModifier</td></tr><tr><td rowspan=1 colspan=1>A</td><td rowspan=1 colspan=1>Analysis</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Alarm</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>B</td><td rowspan=1 colspan=1>Burner, combustion</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>User choice</td><td rowspan=1 colspan=1>User choice</td><td rowspan=1 colspan=1>User choice</td></tr><tr><td rowspan=1 colspan=1>C</td><td rowspan=1 colspan=1>User&#x27;s choice(usuallyconductivity)</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Control</td><td rowspan=1 colspan=1>Close</td></tr><tr><td rowspan=1 colspan=1>D</td><td rowspan=1 colspan=1>User&#x27;s choice(usually density)</td><td rowspan=1 colspan=1>Difference,Differential</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Deviation</td></tr><tr><td rowspan=1 colspan=1>E</td><td rowspan=1 colspan=1>Voltage</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Sensor</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>F</td><td rowspan=1 colspan=1>Flow rate</td><td rowspan=1 colspan=1>Ratio</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>G</td><td rowspan=1 colspan=1>User&#x27;s choice(usually gauging)</td><td rowspan=1 colspan=1>Gas</td><td rowspan=1 colspan=1>Glass/gauge</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>H</td><td rowspan=1 colspan=1>Hand</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>High</td></tr><tr><td rowspan=1 colspan=1>1</td><td rowspan=1 colspan=1>Current</td><td rowspan=1 colspan=1>Interlock</td><td rowspan=1 colspan=1>Indicate</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>J</td><td rowspan=1 colspan=1>Power</td><td rowspan=1 colspan=1>Scan</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>K</td><td rowspan=1 colspan=1>Time, timeschedule</td><td rowspan=1 colspan=1>Time rate ofchange</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Control station</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>L</td><td rowspan=1 colspan=1>Level</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Light</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Low</td></tr><tr><td rowspan=1 colspan=1>M</td><td rowspan=1 colspan=1>User&#x27;s choice</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Middle /intermediate</td></tr><tr><td rowspan=1 colspan=1>N</td><td rowspan=1 colspan=1>User&#x27;s choice(usually torque)</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>User choice</td><td rowspan=1 colspan=1>User choice</td><td rowspan=1 colspan=1>User choice</td></tr><tr><td rowspan=1 colspan=1>0</td><td rowspan=1 colspan=1>User&#x27;s choice</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Orifice</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Open</td></tr><tr><td rowspan=1 colspan=1>P</td><td rowspan=1 colspan=1>Pressure</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Point/testconnection</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>Q</td><td rowspan=1 colspan=1>Quantity</td><td rowspan=1 colspan=1>Totalize/integrate</td><td rowspan=1 colspan=1>Totalize/integrate</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>R</td><td rowspan=1 colspan=1>Radiation</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Record</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Run</td></tr><tr><td rowspan=1 colspan=1>S</td><td rowspan=1 colspan=1>Speed, frequency</td><td rowspan=1 colspan=1>Safety</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Switch</td><td rowspan=1 colspan=1>Stop</td></tr><tr><td rowspan=1 colspan=1>T</td><td rowspan=1 colspan=1>Temperature</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Transmit</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>U</td><td rowspan=1 colspan=1>Multivariable</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Multifunction</td><td rowspan=1 colspan=1>Multifunction</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>V</td><td rowspan=1 colspan=1>Vibration,mech. analysis</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Valve ordamper</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>W</td><td rowspan=1 colspan=1>Weight, force</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Well or probe</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>X</td><td rowspan=1 colspan=1>User&#x27;s choice (on-off valve as XV)</td><td rowspan=1 colspan=1>X-axis</td><td rowspan=1 colspan=1>Accessory devices</td><td rowspan=1 colspan=1>Unclassified</td><td rowspan=1 colspan=1>Unclassified</td></tr><tr><td rowspan=1 colspan=1>Y</td><td rowspan=1 colspan=1>Event, state,presence, status</td><td rowspan=1 colspan=1>Y-axis</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Auxiliarydevices</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>Z</td><td rowspan=1 colspan=1>Position, dimension</td><td rowspan=1 colspan=1>Z-axis or SafetyInstrumentedSystem</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Actuator, driver,or controlelement</td><td rowspan=1 colspan=1></td></tr></table>",
+    "bbox": [
+      114,
+      155,
+      903,
+      902
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "header",
+    "text": "462.pdf",
+    "bbox": [
+      879,
+      45,
+      947,
+      63
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "footer",
+    "text": "Copyright® 2021 Mark Ludwigson",
+    "bbox": [
+      380,
+      924,
+      614,
+      941
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "page_number",
+    "text": "Page 15 of 42",
+    "bbox": [
+      718,
+      924,
+      831,
+      943
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "text",
+    "text": "For additional clarity, instrument tag abbreviations can be defined as shown in Figure 11. The first letter is from the row (measured variable) and subsequent letters are from the columns (instrument function). For example, LS means “Level Switch” in Figure 11, while LS could mean “Level Switch” or “Level Stop” in Table 2.",
+    "bbox": [
+      109,
+      154,
+      874,
+      236
+    ],
+    "page_idx": 15
+  },
+  {
+    "type": "table",
+    "img_path": "images/a30c1cb4424150ca8c8fcc49a392d55550db707c8a3349048c7a4e68af842840.jpg",
+    "table_caption": [
+      "Figure 11: Example Instrument Tag Abbreviations Table from a P&ID legend drawing."
+    ],
+    "table_footnote": [],
+    "table_body": "<table><tr><td rowspan=1 colspan=2>INSTRUMENT FUNCTIONMEASURED VARIABLE</td><td rowspan=1 colspan=1>ELEMMNT</td><td rowspan=1 colspan=1>TRAITER</td><td rowspan=1 colspan=1>INDG TTER</td><td rowspan=1 colspan=1>TR LAYSPL DICESCONRTER</td><td rowspan=1 colspan=1>INDICTOR</td><td rowspan=1 colspan=1>RECDER</td><td rowspan=1 colspan=1>CONLER</td><td rowspan=1 colspan=1>SWITCH</td><td rowspan=1 colspan=1>LIGHT</td><td rowspan=1 colspan=1>ALARM</td></tr><tr><td rowspan=1 colspan=1>A</td><td rowspan=1 colspan=1>ANALYSIS</td><td rowspan=1 colspan=1>AE</td><td rowspan=1 colspan=1>AT</td><td rowspan=1 colspan=1>AIT</td><td rowspan=1 colspan=1>AY</td><td rowspan=1 colspan=1>Al</td><td rowspan=1 colspan=1>AR</td><td rowspan=1 colspan=1>AC</td><td rowspan=1 colspan=1>AS</td><td rowspan=1 colspan=1>AL</td><td rowspan=1 colspan=1>AA</td></tr><tr><td rowspan=1 colspan=1>B</td><td rowspan=1 colspan=1>BURNER FLAME</td><td rowspan=1 colspan=1>BE</td><td rowspan=1 colspan=1>BT</td><td rowspan=1 colspan=1>BIT</td><td rowspan=1 colspan=1>BY</td><td rowspan=1 colspan=1>BI</td><td rowspan=1 colspan=1>BR</td><td rowspan=1 colspan=1>BC</td><td rowspan=1 colspan=1>BS</td><td rowspan=1 colspan=1>BL</td><td rowspan=1 colspan=1>BA</td></tr><tr><td rowspan=1 colspan=1>C</td><td rowspan=1 colspan=1>CONDUCTIVITY</td><td rowspan=1 colspan=1>CE</td><td rowspan=1 colspan=1>CT</td><td rowspan=1 colspan=1>CIT</td><td rowspan=1 colspan=1>CY</td><td rowspan=1 colspan=1>Cl</td><td rowspan=1 colspan=1>CR</td><td rowspan=1 colspan=1>CC</td><td rowspan=1 colspan=1>CS</td><td rowspan=1 colspan=1>CL</td><td rowspan=1 colspan=1>CA</td></tr><tr><td rowspan=1 colspan=1>D</td><td rowspan=1 colspan=1>DENSITY</td><td rowspan=1 colspan=1>DE</td><td rowspan=1 colspan=1>DT</td><td rowspan=1 colspan=1>DIT</td><td rowspan=1 colspan=1>DY</td><td rowspan=1 colspan=1>DI</td><td rowspan=1 colspan=1>DR</td><td rowspan=1 colspan=1>DC</td><td rowspan=1 colspan=1>DS</td><td rowspan=1 colspan=1>DL</td><td rowspan=1 colspan=1>DA</td></tr><tr><td rowspan=1 colspan=1>E</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>F</td><td rowspan=1 colspan=1>FLOW</td><td rowspan=1 colspan=1>FE</td><td rowspan=1 colspan=1>FT</td><td rowspan=1 colspan=1>FIT</td><td rowspan=1 colspan=1>FY</td><td rowspan=1 colspan=1>F1</td><td rowspan=1 colspan=1>FR</td><td rowspan=1 colspan=1>FC</td><td rowspan=1 colspan=1>FS</td><td rowspan=1 colspan=1>FL</td><td rowspan=1 colspan=1>FA</td></tr><tr><td rowspan=1 colspan=1>FF</td><td rowspan=1 colspan=1>FLOW RATIO</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>FFY</td><td rowspan=1 colspan=1>FFI</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>FFC</td><td rowspan=1 colspan=1>FFS</td><td rowspan=1 colspan=1>FFL</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>G</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>H</td><td rowspan=1 colspan=1>HAND (MANUAL)</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>HC</td><td rowspan=1 colspan=1>HS</td><td rowspan=1 colspan=1>HL</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>1</td><td rowspan=1 colspan=1>CURRENT</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>IT</td><td rowspan=1 colspan=1>IIT</td><td rowspan=1 colspan=1>IY</td><td rowspan=1 colspan=1>ⅡI</td><td rowspan=1 colspan=1>IR</td><td rowspan=1 colspan=1>IC</td><td rowspan=1 colspan=1>IS</td><td rowspan=1 colspan=1>IL</td><td rowspan=1 colspan=1>IA</td></tr><tr><td rowspan=1 colspan=1>J</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>K</td><td rowspan=1 colspan=1>TIME</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>KY</td><td rowspan=1 colspan=1>KI</td><td rowspan=1 colspan=1>KR</td><td rowspan=1 colspan=1>KC</td><td rowspan=1 colspan=1>KS</td><td rowspan=1 colspan=1>KL</td><td rowspan=1 colspan=1>KA</td></tr><tr><td rowspan=1 colspan=1>L</td><td rowspan=1 colspan=1>LEVEL</td><td rowspan=1 colspan=1>LE</td><td rowspan=1 colspan=1>LT</td><td rowspan=1 colspan=1>LIT</td><td rowspan=1 colspan=1>LY</td><td rowspan=1 colspan=1>LI</td><td rowspan=1 colspan=1>LR</td><td rowspan=1 colspan=1>LC</td><td rowspan=1 colspan=1>LS</td><td rowspan=1 colspan=1>LL</td><td rowspan=1 colspan=1>LA</td></tr><tr><td rowspan=1 colspan=1>M</td><td rowspan=1 colspan=1>MOISTURE OR HUMIDITY</td><td rowspan=1 colspan=1>ME</td><td rowspan=1 colspan=1>MT</td><td rowspan=1 colspan=1>MIT</td><td rowspan=1 colspan=1>MY</td><td rowspan=1 colspan=1>MI</td><td rowspan=1 colspan=1>MR</td><td rowspan=1 colspan=1>MC</td><td rowspan=1 colspan=1>MS</td><td rowspan=1 colspan=1>ML</td><td rowspan=1 colspan=1>MA</td></tr><tr><td rowspan=1 colspan=1>N</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>0</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>P</td><td rowspan=1 colspan=1>PRESSURE OR VACUUM</td><td rowspan=1 colspan=1>PE</td><td rowspan=1 colspan=1>PT</td><td rowspan=1 colspan=1>PIT</td><td rowspan=1 colspan=1>PY</td><td rowspan=1 colspan=1>PI</td><td rowspan=1 colspan=1>PR</td><td rowspan=1 colspan=1>PC</td><td rowspan=1 colspan=1>PS</td><td rowspan=1 colspan=1>PL</td><td rowspan=1 colspan=1>PA</td></tr><tr><td rowspan=1 colspan=1>PD</td><td rowspan=1 colspan=1>DIFFERENTIAL PRESSURE</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>PDT</td><td rowspan=1 colspan=1>PDIT</td><td rowspan=1 colspan=1>PDY</td><td rowspan=1 colspan=1>PDI</td><td rowspan=1 colspan=1>PDR</td><td rowspan=1 colspan=1>PDC</td><td rowspan=1 colspan=1>PDS</td><td rowspan=1 colspan=1>PDL</td><td rowspan=1 colspan=1>PDA</td></tr><tr><td rowspan=1 colspan=1>Q</td><td rowspan=1 colspan=1>QUANTITY</td><td rowspan=1 colspan=1>QE</td><td rowspan=1 colspan=1>QT</td><td rowspan=1 colspan=1>QIT</td><td rowspan=1 colspan=1>QY</td><td rowspan=1 colspan=1>QI</td><td rowspan=1 colspan=1>QR</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>QS</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>QA</td></tr><tr><td rowspan=1 colspan=1>R</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>S</td><td rowspan=1 colspan=1>SPEED</td><td rowspan=1 colspan=1>SE</td><td rowspan=1 colspan=1>ST</td><td rowspan=1 colspan=1>SIT</td><td rowspan=1 colspan=1>SY</td><td rowspan=1 colspan=1>SI</td><td rowspan=1 colspan=1>SR</td><td rowspan=1 colspan=1>SC</td><td rowspan=1 colspan=1>SS</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>SA</td></tr><tr><td rowspan=1 colspan=1>T</td><td rowspan=1 colspan=1>TEMPERATURE</td><td rowspan=1 colspan=1>TE</td><td rowspan=1 colspan=1>TπT</td><td rowspan=1 colspan=1>TIT</td><td rowspan=1 colspan=1>TY</td><td rowspan=1 colspan=1>T1</td><td rowspan=1 colspan=1>TR</td><td rowspan=1 colspan=1>TC</td><td rowspan=1 colspan=1>TS</td><td rowspan=1 colspan=1>TL</td><td rowspan=1 colspan=1>TA</td></tr><tr><td rowspan=1 colspan=1>TD</td><td rowspan=1 colspan=1>DIFFERENTIAL TEMPERATURE</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>TDT</td><td rowspan=1 colspan=1>TDIT</td><td rowspan=1 colspan=1>TDY</td><td rowspan=1 colspan=1>TDI</td><td rowspan=1 colspan=1>TDR</td><td rowspan=1 colspan=1>TDC</td><td rowspan=1 colspan=1>TDS</td><td rowspan=1 colspan=1>TDL</td><td rowspan=1 colspan=1>TDA</td></tr><tr><td rowspan=1 colspan=1>U</td><td rowspan=1 colspan=1>MULTIVARIABLE</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>UI</td><td rowspan=1 colspan=1>UR</td><td rowspan=1 colspan=1>UC</td><td rowspan=1 colspan=1>US</td><td rowspan=1 colspan=1>UL</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>V</td><td rowspan=1 colspan=1>VISCOSITY</td><td rowspan=1 colspan=1>VE</td><td rowspan=1 colspan=1>VT</td><td rowspan=1 colspan=1>VIT</td><td rowspan=1 colspan=1>VY</td><td rowspan=1 colspan=1>VI</td><td rowspan=1 colspan=1>VR</td><td rowspan=1 colspan=1>VC</td><td rowspan=1 colspan=1>VS</td><td rowspan=1 colspan=1>VL</td><td rowspan=1 colspan=1>VA</td></tr><tr><td rowspan=1 colspan=1>w</td><td rowspan=1 colspan=1>WEIGHT</td><td rowspan=1 colspan=1>WE</td><td rowspan=1 colspan=1>WT</td><td rowspan=1 colspan=1>WIT</td><td rowspan=1 colspan=1>WY</td><td rowspan=1 colspan=1>WI</td><td rowspan=1 colspan=1>WR</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>wS</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>WA</td></tr><tr><td rowspan=1 colspan=1>x</td><td rowspan=1 colspan=1>UNCLASSIFIED</td><td rowspan=1 colspan=1>XE</td><td rowspan=1 colspan=1>XT</td><td rowspan=1 colspan=1>XIT</td><td rowspan=1 colspan=1>XY</td><td rowspan=1 colspan=1>xI</td><td rowspan=1 colspan=1>XR</td><td rowspan=1 colspan=1>XC</td><td rowspan=1 colspan=1>xs</td><td rowspan=1 colspan=1>XL</td><td rowspan=1 colspan=1>XA</td></tr><tr><td rowspan=1 colspan=1>XV</td><td rowspan=1 colspan=1>VIBRATION</td><td rowspan=1 colspan=1>XVE</td><td rowspan=1 colspan=1>XVT</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>XVY</td><td rowspan=1 colspan=1>XVI</td><td rowspan=1 colspan=1>XVR</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>xVS</td><td rowspan=1 colspan=1>XVL</td><td rowspan=1 colspan=1>XVA</td></tr><tr><td rowspan=1 colspan=1>Y</td><td rowspan=1 colspan=1>STATUS</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>YI</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>YL</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>Z</td><td rowspan=1 colspan=1>POSITION</td><td rowspan=1 colspan=1>ZE</td><td rowspan=1 colspan=1>ZT</td><td rowspan=1 colspan=1>ZIT</td><td rowspan=1 colspan=1>ZY</td><td rowspan=1 colspan=1>ZI</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>zS</td><td rowspan=1 colspan=1>ZL</td><td rowspan=1 colspan=1></td></tr></table>",
+    "bbox": [
+      137,
+      253,
+      862,
+      830
+    ],
+    "page_idx": 15
+  },
+  {
+    "type": "header",
+    "text": "Piping and Instrumentation Diagrams",
+    "bbox": [
+      330,
+      102,
+      661,
+      122
+    ],
+    "page_idx": 15
+  },
+  {
+    "type": "footer",
+    "text": "Copyright® 2021 Mark Ludwigson",
+    "bbox": [
+      379,
+      924,
+      614,
+      941
+    ],
+    "page_idx": 15
+  },
+  {
+    "type": "page_number",
+    "text": "Page 16 of 42",
+    "bbox": [
+      718,
+      924,
+      831,
+      943
+    ],
+    "page_idx": 15
+  },
+  {
+    "type": "text",
+    "text": "Instrument control abbreviations are shown to the upper right of instrument tags. These can also be defined in a P&ID legend, as shown in Figure 12.",
+    "bbox": [
+      111,
+      155,
+      877,
+      191
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "image",
+    "img_path": "images/ac728e5a6da1eb9c4b21ab4a16509a66540e25e400102677bbda4dcd0cc2a85e.jpg",
+    "image_caption": [],
+    "image_footnote": [],
+    "bbox": [
+      433,
+      198,
+      550,
+      248
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "table",
+    "img_path": "images/623682456137e7cce3e4405478138589425939c4156241722ff1eccca7b4377b.jpg",
+    "table_caption": [
+      "Figure 12: Example abbreviations for instrument control functions. These letter designations are commonly placed to the upper right of instrument tag circles, where the (XXX) is shown."
+    ],
+    "table_footnote": [],
+    "table_body": "<table><tr><td>AHC</td><td>AUTO/HOLD/CLOSE</td><td>OSC</td><td>OPEN/STOP/CLOSED</td></tr><tr><td>A/M</td><td>AUTO/MANUAL</td><td></td><td></td></tr><tr><td>DEV</td><td>DEVIATION</td><td>P/P</td><td>PUSH/PULL</td></tr><tr><td>HOA</td><td>HAND/OFF/AUTO</td><td>RL</td><td>RAISE/LOWER</td></tr><tr><td>HOR</td><td>HAND/OFF/REMOTE</td><td>RSL</td><td>RAISE/STOP/LOWER</td></tr><tr><td>L/R</td><td>LOCAL/REMOTE</td><td>S/D</td><td>SHUTDOWN</td></tr><tr><td>L/O/R</td><td>LOCAL/OFF/REMOTE</td><td>SEL</td><td>SELECT</td></tr><tr><td>MOA</td><td>MANUAL/OFF/AUTO</td><td>S/LOS</td><td>START/LOCKOUT STOP</td></tr><tr><td>O/O</td><td>ON/OFF</td><td>SP</td><td>SET POINT</td></tr><tr><td>OCA</td><td>OPEN/CLOSE/AUTO</td><td>SR</td><td>START/RESET</td></tr><tr><td>O/C</td><td>OPEN/CLOSE</td><td>S/S</td><td>STOP/START</td></tr></table>",
+    "bbox": [
+      222,
+      256,
+      769,
+      465
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "text",
+    "text": "The simplest control device is the O/O (On/Off) switch, as shown in Figure 13.",
+    "bbox": [
+      112,
+      571,
+      795,
+      592
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "image",
+    "img_path": "images/0e66ba3c7dd396ccff97b4e7bf0d3fb77ab3ea3a29a715954ac83c0d47a357f3.jpg",
+    "image_caption": [
+      "Figure 13: O/O hand switch (HS) on a control panel, with On and Off functions. Source: https://commons.wikimedia.org/wiki/File:On-Off\\_Switch.jpg, Jszack, CC-BY-SA-2.5"
+    ],
+    "image_footnote": [],
+    "bbox": [
+      415,
+      606,
+      583,
+      776
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "header",
+    "text": "Piping and Instrumentation Diagrams",
+    "bbox": [
+      328,
+      102,
+      660,
+      122
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "footer",
+    "text": "Copyright® 2021 Mark Ludwigson",
+    "bbox": [
+      380,
+      924,
+      614,
+      940
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "page_number",
+    "text": "Page 17 of 42",
+    "bbox": [
+      718,
+      924,
+      831,
+      943
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "text",
+    "text": "Piping and Instrumentation Diagrams",
+    "text_level": 1,
+    "bbox": [
+      330,
+      102,
+      661,
+      122
+    ],
+    "page_idx": 17
+  },
+  {
+    "type": "text",
+    "text": "HOA stands for Hand/Off/Auto, which is common for a switch that controls equipment with a motor. See Figure 14 for an example of an HOA selector switch. This is similar to HOR (Hand/Off/Remote) in which the device can be controlled remotely (either automatically or by a remote user through a control panel or HMI (Human-Machine Interface) software.",
+    "bbox": [
+      109,
+      154,
+      880,
+      244
+    ],
+    "page_idx": 17
+  },
+  {
+    "type": "image",
+    "img_path": "images/8b9ed22a61a2db3a606a1cdb2dec7dfdbcd98c27fcff3b888069c049c15aa5db.jpg",
+    "image_caption": [
+      "Figure 14: Selector/hand switch with HOA functions:"
+    ],
+    "image_footnote": [],
+    "bbox": [
+      236,
+      258,
+      759,
+      597
+    ],
+    "page_idx": 17
+  },
+  {
+    "type": "text",
+    "text": "1) HAND means the device will be on with no automated controls,",
+    "bbox": [
+      209,
+      636,
+      790,
+      656
+    ],
+    "page_idx": 17
+  },
+  {
+    "type": "text",
+    "text": "2) OFF means the device will be off with no automated controls, and 3) AUTO means the device will be turned on and off through automated controls.",
+    "bbox": [
+      142,
+      656,
+      852,
+      696
+    ],
+    "page_idx": 17
+  },
+  {
+    "type": "header",
+    "text": "462.pdf",
+    "bbox": [
+      879,
+      45,
+      949,
+      63
+    ],
+    "page_idx": 17
+  },
+  {
+    "type": "footer",
+    "text": "Copyright® 2021 Mark Ludwigson",
+    "bbox": [
+      379,
+      924,
+      614,
+      940
+    ],
+    "page_idx": 17
+  },
+  {
+    "type": "page_number",
+    "text": "Page 18 of 42",
+    "bbox": [
+      717,
+      924,
+      831,
+      943
+    ],
+    "page_idx": 17
+  }
+]

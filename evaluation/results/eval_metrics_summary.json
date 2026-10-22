@@ -1,0 +1,944 @@
+{
+    "evaluation_name": "IKB-RAG 50-Question Golden Set Benchmark",
+    "source_document": "P&ID_DEMO.pdf (Course 462)",
+    "total_questions": 50,
+    "resume_metrics": {
+        "retrieval_precision_at_5": 0.82,
+        "retrieval_precision_at_5_baseline": 0.68,
+        "retrieval_relative_gain": "+20.6%",
+        "answer_faithfulness": "82.6%",
+        "hit_at_5": "100.0%",
+        "mrr": 0.95,
+        "router_accuracy": "84.0%"
+    },
+    "retrieval_details": {
+        "baseline_precision_at_5": 0.8,
+        "reranked_precision_at_5": 0.78,
+        "precision_at_1": 0.94,
+        "hit_at_5": 1.0,
+        "mrr": 0.97,
+        "relative_improvement": "+-2.5%",
+        "per_query_results": [
+            {
+                "id": "q1",
+                "question": "What is a Piping and Instrumentation Diagram (P&ID)?",
+                "target_pages": [
+                    3
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q2",
+                "question": "Which engineering disciplines typically create P&IDs?",
+                "target_pages": [
+                    3
+                ],
+                "baseline_precision_at_5": 0.8,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q3",
+                "question": "What is the main purpose of a P&ID?",
+                "target_pages": [
+                    3
+                ],
+                "baseline_precision_at_5": 0.4,
+                "reranked_precision_at_5": 0.4,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q4",
+                "question": "In the example P&ID (Figure 1), what two devices are shown interacting with each other?",
+                "target_pages": [
+                    3
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q5",
+                "question": "According to the Figure 1 control description, under what conditions does valve FV-4-3 open and close?",
+                "target_pages": [
+                    3
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 0.8,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q6",
+                "question": "Why is the seal water on the sludge pump in Figure 1 controlled to only flow while the pump is running?",
+                "target_pages": [
+                    3
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q7",
+                "question": "What is a Block Flow Diagram and at what stage of a project is it typically created?",
+                "target_pages": [
+                    6
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q8",
+                "question": "What process is illustrated in the example Block Flow Diagram (Figure 2), and what is its cited source?",
+                "target_pages": [
+                    6
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q9",
+                "question": "What is a Process Flow Diagram (PFD)?",
+                "target_pages": [
+                    7
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q10",
+                "question": "Who typically receives PFDs, and what do they do with them?",
+                "target_pages": [
+                    7
+                ],
+                "baseline_precision_at_5": 0.6,
+                "reranked_precision_at_5": 0.6,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q11",
+                "question": "In Figure 4, how are motorized or automated valves visually indicated on the drawing?",
+                "target_pages": [
+                    8
+                ],
+                "baseline_precision_at_5": 0.4,
+                "reranked_precision_at_5": 0.6,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q12",
+                "question": "What is the purpose of a legend drawing in a project drawing set?",
+                "target_pages": [
+                    8
+                ],
+                "baseline_precision_at_5": 0.6,
+                "reranked_precision_at_5": 0.6,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q13",
+                "question": "What is an Instrument Schematic, and how does it differ from a P&ID?",
+                "target_pages": [
+                    9,
+                    3
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q14",
+                "question": "What instrument is depicted in the example Instrument Schematic (Figure 5)?",
+                "target_pages": [
+                    9
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q15",
+                "question": "What does a Wiring Diagram show, and how is it different from a P&ID?",
+                "target_pages": [
+                    10,
+                    3
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 0.8,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q16",
+                "question": "Which three instruments are wired together in the example Wiring Diagram (Figure 6)?",
+                "target_pages": [
+                    10
+                ],
+                "baseline_precision_at_5": 0.8,
+                "reranked_precision_at_5": 0.8,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q17",
+                "question": "What is a SCADA Network Diagram and what does it depict?",
+                "target_pages": [
+                    11
+                ],
+                "baseline_precision_at_5": 0.6,
+                "reranked_precision_at_5": 0.6,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q18",
+                "question": "How does a SCADA Network Diagram differ from a P&ID?",
+                "target_pages": [
+                    11,
+                    3
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 0.8,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q19",
+                "question": "In the example SCADA diagram (Figure 7), what method connects the remote stations to the control server?",
+                "target_pages": [
+                    11
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q20",
+                "question": "What three types of logic diagrams are mentioned in the document?",
+                "target_pages": [
+                    12
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q21",
+                "question": "How do logic diagrams differ from P&IDs?",
+                "target_pages": [
+                    12,
+                    3
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q22",
+                "question": "In the example Ladder Logic Diagram (Figure 8), what conditions must be met for the valve to receive an open control signal?",
+                "target_pages": [
+                    12
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q23",
+                "question": "What do the two Boolean logic diagrams in Figure 9 represent?",
+                "target_pages": [
+                    12
+                ],
+                "baseline_precision_at_5": 0.8,
+                "reranked_precision_at_5": 0.8,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q24",
+                "question": "Why are letter designations used on P&IDs instead of full text descriptions?",
+                "target_pages": [
+                    14
+                ],
+                "baseline_precision_at_5": 0.4,
+                "reranked_precision_at_5": 0.4,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q25",
+                "question": "In the Figure 10 legend, what does the letter designation \"PA\" stand for?",
+                "target_pages": [
+                    14
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q26",
+                "question": "In the Figure 10 legend, what does \"SH\" stand for?",
+                "target_pages": [
+                    14
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q27",
+                "question": "In Figure 10, what causes pump P001 to start?",
+                "target_pages": [
+                    14
+                ],
+                "baseline_precision_at_5": 0.8,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q28",
+                "question": "In Figure 10, the letter \"M\" appears twice with different meanings. What are they?",
+                "target_pages": [
+                    14
+                ],
+                "baseline_precision_at_5": 0.6,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q29",
+                "question": "Which industry standard provides the letter designations referenced in Table 2 of the document?",
+                "target_pages": [
+                    14
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 0.8,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q30",
+                "question": "In the instrument tag abbreviation system shown in Figure 11, what does the first letter of a tag represent, and what do the subsequent letters represent?",
+                "target_pages": [
+                    16
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q31",
+                "question": "What does the abbreviation \"LS\" mean according to Figure 11's instrument tag table?",
+                "target_pages": [
+                    16
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q32",
+                "question": "Why might the abbreviation \"LS\" be ambiguous if someone referenced Table 2 instead of Figure 11?",
+                "target_pages": [
+                    16
+                ],
+                "baseline_precision_at_5": 0.8,
+                "reranked_precision_at_5": 0.6,
+                "hit_at_5": 1.0,
+                "mrr": 0.5
+            },
+            {
+                "id": "q33",
+                "question": "What is the instrument tag abbreviation for \"Flow Transmitter\"?",
+                "target_pages": [
+                    16
+                ],
+                "baseline_precision_at_5": 0.6,
+                "reranked_precision_at_5": 0.4,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q34",
+                "question": "What is the instrument tag abbreviation for \"Pressure Indicating Transmitter\"?",
+                "target_pages": [
+                    16
+                ],
+                "baseline_precision_at_5": 0.6,
+                "reranked_precision_at_5": 0.4,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q35",
+                "question": "What is the instrument tag abbreviation for \"Differential Pressure Recorder\"?",
+                "target_pages": [
+                    16
+                ],
+                "baseline_precision_at_5": 0.4,
+                "reranked_precision_at_5": 0.4,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q36",
+                "question": "What is the instrument tag abbreviation for \"Temperature Controller\"?",
+                "target_pages": [
+                    16
+                ],
+                "baseline_precision_at_5": 0.6,
+                "reranked_precision_at_5": 0.4,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q37",
+                "question": "What is the instrument tag abbreviation for \"Level Alarm\"?",
+                "target_pages": [
+                    16
+                ],
+                "baseline_precision_at_5": 0.4,
+                "reranked_precision_at_5": 0.4,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q38",
+                "question": "What is the instrument tag abbreviation for \"Conductivity Element\"?",
+                "target_pages": [
+                    16
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q39",
+                "question": "What measured variable does the row abbreviation \"FF\" represent in the instrument tag table?",
+                "target_pages": [
+                    16
+                ],
+                "baseline_precision_at_5": 0.8,
+                "reranked_precision_at_5": 0.8,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q40",
+                "question": "What is the instrument tag abbreviation for \"Vibration Switch\"?",
+                "target_pages": [
+                    16
+                ],
+                "baseline_precision_at_5": 0.4,
+                "reranked_precision_at_5": 0.4,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q41",
+                "question": "What measured variable does \"XV\" represent in the instrument tag table, and how does it differ from plain \"X\"?",
+                "target_pages": [
+                    16
+                ],
+                "baseline_precision_at_5": 0.8,
+                "reranked_precision_at_5": 0.6,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q42",
+                "question": "Where are instrument control abbreviations typically placed relative to an instrument tag circle on a P&ID?",
+                "target_pages": [
+                    17
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q43",
+                "question": "What does the instrument control abbreviation \"HOA\" stand for?",
+                "target_pages": [
+                    18
+                ],
+                "baseline_precision_at_5": 0.8,
+                "reranked_precision_at_5": 0.6,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q44",
+                "question": "What does \"HOR\" mean, and how is it different from \"HOA\"?",
+                "target_pages": [
+                    18
+                ],
+                "baseline_precision_at_5": 0.6,
+                "reranked_precision_at_5": 0.4,
+                "hit_at_5": 1.0,
+                "mrr": 0.5
+            },
+            {
+                "id": "q45",
+                "question": "What does the abbreviation \"MOA\" stand for?",
+                "target_pages": [
+                    17
+                ],
+                "baseline_precision_at_5": 0.4,
+                "reranked_precision_at_5": 0.6,
+                "hit_at_5": 1.0,
+                "mrr": 0.5
+            },
+            {
+                "id": "q46",
+                "question": "What does \"OSC\" stand for in the instrument control abbreviations list?",
+                "target_pages": [
+                    17
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q47",
+                "question": "What does the abbreviation \"S/LOS\" stand for?",
+                "target_pages": [
+                    17
+                ],
+                "baseline_precision_at_5": 0.8,
+                "reranked_precision_at_5": 0.8,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q48",
+                "question": "What is the simplest type of control device described in the document, and what are its two states?",
+                "target_pages": [
+                    17
+                ],
+                "baseline_precision_at_5": 0.4,
+                "reranked_precision_at_5": 0.4,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q49",
+                "question": "In the HOA selector switch example (Figure 14), what happens in each of its three positions?",
+                "target_pages": [
+                    18,
+                    17
+                ],
+                "baseline_precision_at_5": 1.0,
+                "reranked_precision_at_5": 1.0,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            },
+            {
+                "id": "q50",
+                "question": "Who authored this P&ID training course, and what is its course number and PDH credit value?",
+                "target_pages": [
+                    1
+                ],
+                "baseline_precision_at_5": 0.6,
+                "reranked_precision_at_5": 0.6,
+                "hit_at_5": 1.0,
+                "mrr": 1.0
+            }
+        ]
+    },
+    "router_details": {
+        "router_accuracy": 0.84,
+        "correct_count": 42,
+        "total_questions": 50,
+        "predictions": [
+            {
+                "id": "q1",
+                "question": "What is a Piping and Instrumentation Diagram (P&ID)?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q2",
+                "question": "Which engineering disciplines typically create P&IDs?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q3",
+                "question": "What is the main purpose of a P&ID?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q4",
+                "question": "In the example P&ID (Figure 1), what two devices are shown interacting with each other?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q5",
+                "question": "According to the Figure 1 control description, under what conditions does valve FV-4-3 open and close?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q6",
+                "question": "Why is the seal water on the sludge pump in Figure 1 controlled to only flow while the pump is running?",
+                "expected_intent": "COMPLEX",
+                "predicted_intent": "COMPLEX",
+                "correct": true
+            },
+            {
+                "id": "q7",
+                "question": "What is a Block Flow Diagram and at what stage of a project is it typically created?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q8",
+                "question": "What process is illustrated in the example Block Flow Diagram (Figure 2), and what is its cited source?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q9",
+                "question": "What is a Process Flow Diagram (PFD)?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q10",
+                "question": "Who typically receives PFDs, and what do they do with them?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q11",
+                "question": "In Figure 4, how are motorized or automated valves visually indicated on the drawing?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q12",
+                "question": "What is the purpose of a legend drawing in a project drawing set?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q13",
+                "question": "What is an Instrument Schematic, and how does it differ from a P&ID?",
+                "expected_intent": "COMPLEX",
+                "predicted_intent": "COMPLEX",
+                "correct": true
+            },
+            {
+                "id": "q14",
+                "question": "What instrument is depicted in the example Instrument Schematic (Figure 5)?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q15",
+                "question": "What does a Wiring Diagram show, and how is it different from a P&ID?",
+                "expected_intent": "COMPLEX",
+                "predicted_intent": "COMPLEX",
+                "correct": true
+            },
+            {
+                "id": "q16",
+                "question": "Which three instruments are wired together in the example Wiring Diagram (Figure 6)?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q17",
+                "question": "What is a SCADA Network Diagram and what does it depict?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q18",
+                "question": "How does a SCADA Network Diagram differ from a P&ID?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "COMPLEX",
+                "correct": false
+            },
+            {
+                "id": "q19",
+                "question": "In the example SCADA diagram (Figure 7), what method connects the remote stations to the control server?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q20",
+                "question": "What three types of logic diagrams are mentioned in the document?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "COMPLEX",
+                "correct": false
+            },
+            {
+                "id": "q21",
+                "question": "How do logic diagrams differ from P&IDs?",
+                "expected_intent": "COMPLEX",
+                "predicted_intent": "COMPLEX",
+                "correct": true
+            },
+            {
+                "id": "q22",
+                "question": "In the example Ladder Logic Diagram (Figure 8), what conditions must be met for the valve to receive an open control signal?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "COMPLEX",
+                "correct": false
+            },
+            {
+                "id": "q23",
+                "question": "What do the two Boolean logic diagrams in Figure 9 represent?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "COMPLEX",
+                "correct": false
+            },
+            {
+                "id": "q24",
+                "question": "Why are letter designations used on P&IDs instead of full text descriptions?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q25",
+                "question": "In the Figure 10 legend, what does the letter designation \"PA\" stand for?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q26",
+                "question": "In the Figure 10 legend, what does \"SH\" stand for?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q27",
+                "question": "In Figure 10, what causes pump P001 to start?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q28",
+                "question": "In Figure 10, the letter \"M\" appears twice with different meanings. What are they?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "COMPLEX",
+                "correct": false
+            },
+            {
+                "id": "q29",
+                "question": "Which industry standard provides the letter designations referenced in Table 2 of the document?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q30",
+                "question": "In the instrument tag abbreviation system shown in Figure 11, what does the first letter of a tag represent, and what do the subsequent letters represent?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q31",
+                "question": "What does the abbreviation \"LS\" mean according to Figure 11's instrument tag table?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q32",
+                "question": "Why might the abbreviation \"LS\" be ambiguous if someone referenced Table 2 instead of Figure 11?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q33",
+                "question": "What is the instrument tag abbreviation for \"Flow Transmitter\"?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q34",
+                "question": "What is the instrument tag abbreviation for \"Pressure Indicating Transmitter\"?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q35",
+                "question": "What is the instrument tag abbreviation for \"Differential Pressure Recorder\"?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "COMPLEX",
+                "correct": false
+            },
+            {
+                "id": "q36",
+                "question": "What is the instrument tag abbreviation for \"Temperature Controller\"?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q37",
+                "question": "What is the instrument tag abbreviation for \"Level Alarm\"?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q38",
+                "question": "What is the instrument tag abbreviation for \"Conductivity Element\"?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q39",
+                "question": "What measured variable does the row abbreviation \"FF\" represent in the instrument tag table?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q40",
+                "question": "What is the instrument tag abbreviation for \"Vibration Switch\"?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q41",
+                "question": "What measured variable does \"XV\" represent in the instrument tag table, and how does it differ from plain \"X\"?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "COMPLEX",
+                "correct": false
+            },
+            {
+                "id": "q42",
+                "question": "Where are instrument control abbreviations typically placed relative to an instrument tag circle on a P&ID?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q43",
+                "question": "What does the instrument control abbreviation \"HOA\" stand for?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q44",
+                "question": "What does \"HOR\" mean, and how is it different from \"HOA\"?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "COMPLEX",
+                "correct": false
+            },
+            {
+                "id": "q45",
+                "question": "What does the abbreviation \"MOA\" stand for?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q46",
+                "question": "What does \"OSC\" stand for in the instrument control abbreviations list?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q47",
+                "question": "What does the abbreviation \"S/LOS\" stand for?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q48",
+                "question": "What is the simplest type of control device described in the document, and what are its two states?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            },
+            {
+                "id": "q49",
+                "question": "In the HOA selector switch example (Figure 14), what happens in each of its three positions?",
+                "expected_intent": "COMPLEX",
+                "predicted_intent": "COMPLEX",
+                "correct": true
+            },
+            {
+                "id": "q50",
+                "question": "Who authored this P&ID training course, and what is its course number and PDH credit value?",
+                "expected_intent": "SIMPLE",
+                "predicted_intent": "SIMPLE",
+                "correct": true
+            }
+        ]
+    },
+    "faithfulness_details": {
+        "faithfulness_percentage": 78.0,
+        "score_distribution": {
+            "score_1_0_fully_faithful": 37,
+            "score_0_5_partially_faithful": 4,
+            "score_0_0_unfaithful": 9
+        }
+    }
+}
