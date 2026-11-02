@@ -144,3 +144,4 @@ cython_debug/
 env_configs/
 data/
 logs/
+simple_vector_db_*.json

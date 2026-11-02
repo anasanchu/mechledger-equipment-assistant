@@ -1,4 +1,6 @@
-# Project Report: IKB-RAG (Industrial Knowledge Base RAG)
+# Historical Upstream Project Report: IKB-RAG
+
+> This report describes the inherited IKB-RAG implementation at the time it was written. It is retained for project history and attribution; some architecture and feature statements are no longer current. See the [MECHLEDGER README](README.md) for the verified current product and setup.
 
 ## Chapter 1: Introduction
 

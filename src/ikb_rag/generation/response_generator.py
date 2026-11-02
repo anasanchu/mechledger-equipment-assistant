@@ -24,6 +24,14 @@ class ResponseGenerator:
         Returns:
             Synthesized answer or fallback error message.
         """
+        if not context.strip():
+            return (
+                "## Evidence not found\n\nNo indexed document passage matched this question in the current case. "
+                "I cannot establish a cause or recommend a document-based procedure from the available evidence. "
+                "Add the relevant equipment manual or provide the missing equipment and operating details, then retry.\n\n"
+                "**Safety:** Follow your site's approved procedures and the current manufacturer instructions."
+            )
+
         if len(context) > 15000:
             context = context[:15000] + "\n\n...[Context Truncated to prevent Rate Limits]..."
 

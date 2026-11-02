@@ -54,7 +54,7 @@ class TestImports(unittest.TestCase):
 
     def test_import_api_app(self):
         from api.main import app
-        self.assertEqual(app.title, "IKB-RAG API")
+        self.assertEqual(app.title, "MECHLEDGER API")
 
     def test_ikb_rag_root_import(self):
         from src.ikb_rag import IKBRagEngine, rag_engine

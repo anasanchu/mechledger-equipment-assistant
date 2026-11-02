@@ -1,4 +1,6 @@
-# IKB-RAG: Project Progress & Technology Matrix
+# Historical Upstream Progress Report: IKB-RAG
+
+> This report records an earlier project state and is retained for provenance. Its hosting, model, and feature claims may not match the current code. See the [MECHLEDGER README](README.md) for current implementation details.
 
 This document outlines the current state of the IKB-RAG platform based on the required "Suggested Technologies" for the hackathon. It provides a clear view of what has been successfully engineered and what the future phases of development hold.
 

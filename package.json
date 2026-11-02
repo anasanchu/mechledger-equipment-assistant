@@ -1,4 +1,8 @@
 {
+  "name": "mechledger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MECHLEDGER industrial knowledge and diagnostics",
   "dependencies": {
     "qdrant-client": "^0.0.1"
   }

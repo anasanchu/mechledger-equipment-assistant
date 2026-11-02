@@ -1,529 +1,325 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
-import { Bot, User, Send, FileText, Plus, MessageSquare, Upload, X, Loader2, Link, MoreVertical, Edit2, Trash2, RefreshCw, AlertTriangle } from 'lucide-react';
+import { AlertCircle, BookOpen, CheckCircle2, Download, FileText, LoaderCircle, MessageSquare, Plus, RotateCw, Send, Trash2, Upload, X } from 'lucide-react';
+import './App.css';
 
-const API_BASE = 'http://localhost:8002';
+const API_BASE = (import.meta.env.VITE_API_BASE || 'http://localhost:8002').replace(/\/$/, '');
+const makeCase = () => ({
+  id: `case-${globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`}`,
+  title: 'New conversation',
+  messages: [],
+});
 
-const PROCESSING_STEPS = [
-  'Prepare', 'Check service',
-  'Submit', 'Queue',
-  'Parse', 'Download',
-  'Build outputs', 'Done'
-];
+function loadCases() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('mechledger_cases') || 'null');
+    if (Array.isArray(saved) && saved.length) return saved.map(item => ({
+      id: String(item.id),
+      title: item.title || 'Conversation',
+      messages: (item.messages || []).filter(message => typeof message.content === 'string' && ['user', 'assistant', 'ai'].includes(message.role)).map(message => ({
+        role: message.role === 'ai' ? 'assistant' : message.role,
+        content: message.content,
+      })),
+    }));
+    const oldChats = JSON.parse(localStorage.getItem('pike_rag_chats') || 'null');
+    if (Array.isArray(oldChats) && oldChats.length) return oldChats.map(item => ({
+      id: String(item.id),
+      title: item.title || 'Imported conversation',
+      messages: (item.messages || []).filter(message => typeof message.content === 'string' && ['user', 'assistant', 'ai'].includes(message.role)).map(message => ({
+        role: message.role === 'ai' ? 'assistant' : message.role,
+        content: message.content,
+      })),
+    }));
+  } catch { /* Start a clean conversation if saved history is damaged. */ }
+  return [makeCase()];
+}
+
+function friendlyError(error, fallback) {
+  const status = error.response?.status;
+  if (!error.response) return 'Cannot reach the MECHLEDGER server. Check that the app is running, then try again.';
+  if (status === 409) return 'A file with this name is already in this conversation. Remove it first or choose another file.';
+  if (status === 413) return 'This file is too large. Choose a file under 50 MB.';
+  if (status === 400 && typeof error.response.data?.detail === 'string') return error.response.data.detail;
+  return fallback;
+}
+
+function statusLabel(document) {
+  if (document.status === 'ready' || document.indexed) return 'Ready';
+  if (document.status === 'processing') return 'Preparing…';
+  if (document.status === 'failed') return 'Needs attention';
+  return 'Needs retry';
+}
 
 export default function App() {
-  const [chats, setChats] = useState(() => {
-    const saved = localStorage.getItem('pike_rag_chats');
-    return saved ? JSON.parse(saved) : [{ id: '1', title: 'New Chat', messages: [] }];
+  const [cases, setCases] = useState(loadCases);
+  const [caseId, setCaseId] = useState(() => {
+    const savedId = localStorage.getItem('mechledger_active_case') || localStorage.getItem('pike_rag_current_chat');
+    return cases.some(item => item.id === savedId) ? savedId : cases[0].id;
   });
-  const [currentChatId, setCurrentChatId] = useState(() => {
-    const saved = localStorage.getItem('pike_rag_current_chat');
-    return saved || '1';
-  });
-  const [input, setInput] = useState('');
   const [documents, setDocuments] = useState([]);
-  const [viewingDoc, setViewingDoc] = useState(null);
-  const [isTyping, setIsTyping] = useState(false);
+  const [question, setQuestion] = useState('');
+  const [notice, setNotice] = useState(null);
   const [uploading, setUploading] = useState(false);
-  
-  const messagesEndRef = useRef(null);
-
-  const [dropdownId, setDropdownId] = useState(null);
-  const [editingChatId, setEditingChatId] = useState(null);
-  const [editingTitle, setEditingTitle] = useState('');
-  const [chatToDelete, setChatToDelete] = useState(null);
-
-  // Get the current chat object
-  const currentChat = chats.find(c => c.id === currentChatId) || chats[0];
+  const [thinking, setThinking] = useState(false);
+  const [workingDocument, setWorkingDocument] = useState('');
+  const picker = useRef(null);
+  const thread = useRef(null);
+  const activeCase = cases.find(item => item.id === caseId) || cases[0];
+  const readyDocuments = useMemo(() => documents.filter(item => item.status === 'ready' || item.indexed), [documents]);
 
   useEffect(() => {
-    localStorage.setItem('pike_rag_chats', JSON.stringify(chats));
-  }, [chats]);
+    localStorage.setItem('mechledger_cases', JSON.stringify(cases));
+  }, [cases]);
 
   useEffect(() => {
-    localStorage.setItem('pike_rag_current_chat', currentChatId);
-    fetchDocuments();
-    setViewingDoc(null);
-  }, [currentChatId]);
+    localStorage.setItem('mechledger_active_case', caseId);
+    let stopped = false;
+    let timer;
+    const refreshDocuments = async () => {
+      try {
+        const response = await axios.get(`${API_BASE}/documents/status`, { params: { chat_id: caseId }, timeout: 10000 });
+        if (stopped) return;
+        const nextDocuments = response.data.documents || [];
+        setDocuments(nextDocuments);
+        if (response.data.warning) setNotice({ text: response.data.warning, kind: 'warning' });
+        const processing = nextDocuments.some(item => item.status === 'processing');
+        timer = window.setTimeout(refreshDocuments, processing ? 2500 : 12000);
+      } catch {
+        if (stopped) return;
+        setNotice({ text: 'Cannot reach the app server. Your saved conversations are still here.', kind: 'error' });
+        timer = window.setTimeout(refreshDocuments, 8000);
+      }
+    };
+    setDocuments([]);
+    refreshDocuments();
+    return () => { stopped = true; window.clearTimeout(timer); };
+  }, [caseId]);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [currentChat.messages]);
+    thread.current?.scrollTo({ top: thread.current.scrollHeight, behavior: 'smooth' });
+  }, [activeCase.messages, thinking]);
 
-  const fetchDocuments = async () => {
-    try {
-      const res = await axios.get(`${API_BASE}/documents?chat_id=${currentChatId}`);
-      setDocuments(res.data.documents || []);
-    } catch (err) {
-      console.error("Failed to fetch documents", err);
-    }
+  const updateMessages = (id, updater) => {
+    setCases(previous => previous.map(item => item.id === id ? { ...item, messages: updater(item.messages) } : item));
   };
 
-  const handleFileUpload = async (e) => {
-    const file = e.target.files[0];
+  const addConversation = () => {
+    const newConversation = makeCase();
+    setCases(previous => [newConversation, ...previous]);
+    setCaseId(newConversation.id);
+    setQuestion('');
+    setNotice(null);
+  };
+
+  const deleteConversation = id => {
+    const conversation = cases.find(item => item.id === id);
+    if (!conversation) return;
+    if (!window.confirm(`Delete “${conversation.title}”? Its saved messages will be removed from this browser.`)) return;
+
+    const remaining = cases.filter(item => item.id !== id);
+    const nextCases = remaining.length ? remaining : [makeCase()];
+    const nextId = id === caseId ? nextCases[0].id : caseId;
+    setCases(nextCases);
+    if (id === caseId) setCaseId(nextId);
+    localStorage.removeItem(`mechledger_equipment_${id}`);
+    setNotice({ text: 'Conversation deleted.', kind: 'success' });
+
+    // A server cleanup problem must not prevent the conversation disappearing.
+    axios.delete(`${API_BASE}/chat/${id}`, { timeout: 10000 }).catch(() => {
+      setNotice({ text: 'Conversation removed from this browser. The server could not clear its saved files; try again when the server is available.', kind: 'warning' });
+    });
+  };
+
+  const upload = async event => {
+    const file = event.target.files?.[0];
     if (!file) return;
+    const extension = file.name.toLowerCase().split('.').pop();
+    if (!['pdf', 'docx', 'txt'].includes(extension)) {
+      setNotice({ text: 'Choose a PDF, Word document, or text file.', kind: 'error' });
+      event.target.value = '';
+      return;
+    }
+    if (file.size > 50 * 1024 * 1024) {
+      setNotice({ text: 'This file is too large. Choose a file under 50 MB.', kind: 'error' });
+      event.target.value = '';
+      return;
+    }
 
     setUploading(true);
-    const tempMsgId = Date.now().toString();
-    const loadingMessage = { 
-      id: tempMsgId, 
-      role: 'system', 
-      content: `${file.name}`,
-      isLoading: true,
-      progress: 0,
-      closable: false
-    };
-    
-    setChats(prev => prev.map(c => {
-      if (c.id === currentChatId) {
-        return { ...c, messages: [...c.messages, loadingMessage] };
-      }
-      return c;
-    }));
-
-    const simInterval = setInterval(() => {
-      setChats(prev => prev.map(c => {
-        if (c.id === currentChatId) {
-          return {
-            ...c,
-            messages: c.messages.map(m => (m.id === tempMsgId && m.progress < 4) ? { ...m, progress: m.progress + 1 } : m)
-          };
-        }
-        return c;
-      }));
-    }, 1500);
-
-    const formData = new FormData();
-    formData.append('chat_id', currentChatId);
-    formData.append('file', file);
-
+    setNotice({ text: `Saving ${file.name}…`, kind: 'loading' });
+    const form = new FormData();
+    form.append('chat_id', caseId);
+    form.append('file', file);
     try {
-      await axios.post(`${API_BASE}/upload`, formData);
-      clearInterval(simInterval);
-      
-      await fetchDocuments();
-      setViewingDoc(`${API_BASE}/documents/${currentChatId}/${file.name}`);
-      
-      setChats(prev => prev.map(c => {
-        if (c.id === currentChatId) {
-          return { 
-            ...c, 
-            title: c.title === 'New Chat' ? file.name : c.title,
-            messages: c.messages.map(m => m.id === tempMsgId ? {
-              ...m, 
-              content: `✅ **${file.name}** successfully parsed and indexed! Ready for analysis.`,
-              isLoading: false,
-              closable: true
-            } : m) 
-          };
-        }
-        return c;
-      }));
-    } catch (err) {
-      clearInterval(simInterval);
-      console.error("Upload failed", err);
-      setChats(prev => prev.map(c => {
-        if (c.id === currentChatId) {
-          return { 
-            ...c, 
-            messages: c.messages.map(m => m.id === tempMsgId ? {
-              ...m, 
-              content: `❌ Error parsing **${file.name}**. The server may have timed out or failed.`,
-              isLoading: false,
-              error: true,
-              closable: true
-            } : m) 
-          };
-        }
-        return c;
-      }));
+      const response = await axios.post(`${API_BASE}/upload`, form, { timeout: 120000 });
+      setDocuments(previous => [
+        ...previous.filter(item => item.filename !== response.data.filename),
+        { filename: response.data.filename || file.name, status: response.data.status || 'processing', indexed: false, message: response.data.message },
+      ]);
+      setNotice({ text: 'Manual saved. MECHLEDGER is preparing it for search; you can keep working.', kind: 'success' });
+    } catch (error) {
+      setNotice({ text: friendlyError(error, 'The manual could not be saved. Try again or choose another file.'), kind: 'error' });
     } finally {
       setUploading(false);
-      e.target.value = '';
+      event.target.value = '';
     }
   };
 
-  const createNewChat = () => {
-    const newId = Date.now().toString();
-    setChats([{ id: newId, title: 'New Chat', messages: [] }, ...chats]);
-    setCurrentChatId(newId);
-  };
-
-  const handleRenameSubmit = (chatId) => {
-    setChats(chats.map(c => c.id === chatId ? { ...c, title: editingTitle } : c));
-    setEditingChatId(null);
-  };
-
-  const handleDeleteChat = (chatId, e) => {
-    e.stopPropagation();
-    setChatToDelete(chatId);
-    setDropdownId(null);
-  };
-
-  const confirmDeleteChat = async () => {
-    if (!chatToDelete) return;
+  const retryDocument = async filename => {
+    setWorkingDocument(filename);
+    setDocuments(previous => previous.map(item => item.filename === filename ? { ...item, status: 'processing', message: 'Preparing your manual for search.' } : item));
     try {
-      await axios.delete(`${API_BASE}/chat/${chatToDelete}`);
-      
-      setChats(prev => {
-        const newChats = prev.filter(c => c.id !== chatToDelete);
-        const successMsg = { 
-          id: Date.now().toString(), 
-          role: 'system', 
-          content: '✅ Chat and all associated files/images were completely deleted.', 
-          closable: true 
-        };
-        
-        if (newChats.length === 0) {
-          const newId = Date.now().toString();
-          setCurrentChatId(newId);
-          setDocuments([]);
-          setViewingDoc(null);
-          return [{ id: newId, title: 'New Chat', messages: [successMsg] }];
-        } else {
-          const nextActiveId = currentChatId === chatToDelete ? newChats[0].id : currentChatId;
-          setCurrentChatId(nextActiveId);
-          if (currentChatId === chatToDelete) {
-             setDocuments([]);
-             setViewingDoc(null);
-          }
-          return newChats.map(c => c.id === nextActiveId ? {
-            ...c,
-            messages: [...c.messages, successMsg]
-          } : c);
-        }
-      });
-      
-    } catch (err) {
-      console.error("Delete failed", err);
-    }
-    setChatToDelete(null);
-  };
-
-  const handleRefreshChat = async (chatId, e) => {
-    e.stopPropagation();
-    setDropdownId(null);
-    if (chatId !== currentChatId) {
-      setCurrentChatId(chatId);
-    }
-
-    const tempMsgId = Date.now().toString();
-    const loadingMessage = { 
-      id: tempMsgId, 
-      role: 'system', 
-      content: `🔄 Refreshing and re-parsing all documents for this chat...`,
-      isLoading: true
-    };
-    
-    setChats(prev => prev.map(c => c.id === chatId ? { ...c, messages: [...c.messages, loadingMessage] } : c));
-
-    try {
-      await axios.post(`${API_BASE}/chat/${chatId}/refresh`);
-      const docsRes = await axios.get(`${API_BASE}/documents?chat_id=${chatId}`);
-      const docs = docsRes.data.documents || [];
-      setDocuments(docs);
-      
-      let newTitle = docs.length > 0 ? docs[0] : null;
-      if (newTitle && chatId === currentChatId) {
-        setViewingDoc(`${API_BASE}/documents/${chatId}/${docs[0]}`);
-      }
-      
-      setChats(prev => prev.map(c => {
-        if (c.id === chatId) {
-          return { 
-            ...c, 
-            title: newTitle || c.title,
-            messages: c.messages.map(m => m.id === tempMsgId ? {
-              ...m, 
-              content: docs.length > 0 ? `✅ Documents successfully re-parsed and indexed!` : `⚠️ No documents found to refresh for this chat.`,
-              isLoading: false,
-              closable: true,
-              error: docs.length === 0
-            } : m) 
-          };
-        }
-        return c;
-      }));
-    } catch (err) {
-      console.error("Refresh failed", err);
-      setChats(prev => prev.map(c => {
-        if (c.id === chatId) {
-          return { 
-            ...c, 
-            messages: c.messages.map(m => m.id === tempMsgId ? {
-              ...m, 
-              content: `❌ Error refreshing documents. Check server logs.`,
-              isLoading: false,
-              error: true,
-              closable: true
-            } : m) 
-          };
-        }
-        return c;
-      }));
-    }
-  };
-
-  const sendMessage = async (e) => {
-    e.preventDefault();
-    if (!input.trim()) return;
-
-    const userMessage = { role: 'user', content: input };
-    const updatedChats = chats.map(c => {
-      if (c.id === currentChatId) {
-        // Automatically title the chat based on first message
-        const title = c.messages.length === 0 ? input.substring(0, 30) + "..." : c.title;
-        return { ...c, title, messages: [...c.messages, userMessage] };
-      }
-      return c;
-    });
-    
-    setChats(updatedChats);
-    setInput('');
-    setIsTyping(true);
-
-    try {
-      const res = await axios.post(`${API_BASE}/query`, { question: userMessage.content, chat_id: currentChatId });
-      
-      setChats(prev => prev.map(c => {
-        if (c.id === currentChatId) {
-          return { ...c, messages: [...c.messages, { role: 'ai', content: res.data.answer }] };
-        }
-        return c;
-      }));
-    } catch (err) {
-      console.error(err);
-      setChats(prev => prev.map(c => {
-        if (c.id === currentChatId) {
-          return { ...c, messages: [...c.messages, { role: 'ai', content: '⚠️ Error connecting to IKB-RAG engine.' }] };
-        }
-        return c;
-      }));
+      await axios.post(`${API_BASE}/documents/${caseId}/${encodeURIComponent(filename)}/process`, {}, { timeout: 10000 });
+      setNotice({ text: 'Retry started. Your manual is being prepared.', kind: 'loading' });
+    } catch (error) {
+      setNotice({ text: friendlyError(error, 'Could not retry this manual. Try again in a moment.'), kind: 'error' });
+      setDocuments(previous => previous.map(item => item.filename === filename ? { ...item, status: 'failed' } : item));
     } finally {
-      setIsTyping(false);
+      setWorkingDocument('');
     }
   };
 
-
-
-  const removeMessage = (chatId, msgId) => {
-    setChats(prev => prev.map(c => {
-      if (c.id === chatId) {
-        return { ...c, messages: c.messages.filter(m => m.id !== msgId) };
-      }
-      return c;
-    }));
+  const removeDocument = async filename => {
+    if (!window.confirm(`Remove “${filename}” from this conversation?`)) return;
+    setDocuments(previous => previous.filter(item => item.filename !== filename));
+    try {
+      const response = await axios.delete(`${API_BASE}/documents/${caseId}/${encodeURIComponent(filename)}`, { timeout: 10000 });
+      setNotice({ text: response.data.message || 'Manual removed.', kind: 'success' });
+    } catch {
+      setNotice({ text: 'The manual disappeared from this list, but the server could not confirm its removal. Refresh the page and try again.', kind: 'warning' });
+    }
   };
 
-  return (
-    <div className="app-container">
-      {/* Sidebar */}
-      <div className="sidebar">
-        <div className="brand">
-          <Bot size={28} /> IKB-RAG
+  const send = async event => {
+    event.preventDefault();
+    const prompt = question.trim();
+    if (!prompt || thinking) return;
+    if (!readyDocuments.length) {
+      setNotice({ text: 'Add a manual and wait until it says “Ready” before asking a question.', kind: 'warning' });
+      return;
+    }
+    const id = caseId;
+    updateMessages(id, messages => [...messages, { role: 'user', content: prompt }]);
+    setCases(previous => previous.map(item => item.id === id && item.title === 'New conversation'
+      ? { ...item, title: prompt.slice(0, 38) }
+      : item));
+    setQuestion('');
+    setThinking(true);
+    setNotice({ text: 'Searching your manuals…', kind: 'loading' });
+    try {
+      const response = await axios.post(`${API_BASE}/query`, { question: prompt, chat_id: id }, { timeout: 120000 });
+      updateMessages(id, messages => [...messages, { role: 'assistant', content: response.data.answer }]);
+      setNotice({ text: 'Answer ready. Select a source link to open the manual page.', kind: 'success' });
+    } catch (error) {
+      updateMessages(id, messages => [...messages, {
+        role: 'assistant',
+        content: friendlyError(error, 'MECHLEDGER could not answer right now. Check the app connection and try again.'),
+      }]);
+      setNotice({ text: friendlyError(error, 'MECHLEDGER could not answer right now. Check the app connection and try again.'), kind: 'error' });
+    } finally {
+      setThinking(false);
+    }
+  };
+
+  const openSource = href => {
+    if (!href) return;
+    const url = new URL(href, window.location.href);
+    window.open(url.href, '_blank', 'noopener,noreferrer');
+  };
+
+  const downloadReport = async () => {
+    try {
+      const response = await axios.post(`${API_BASE}/reports/${caseId}`, {
+        case_title: activeCase.title,
+        equipment: {},
+        problem: activeCase.messages.find(message => message.role === 'user')?.content || '',
+        messages: activeCase.messages.filter(message => message.role === 'user' || message.role === 'assistant'),
+        documents: documents.map(item => item.filename),
+        remarks: '',
+      }, { responseType: 'blob', timeout: 30000 });
+      const url = URL.createObjectURL(response.data);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `MECHLEDGER-${caseId.slice(-6)}-report.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+      setNotice({ text: 'Report downloaded.', kind: 'success' });
+    } catch (error) {
+      setNotice({ text: friendlyError(error, 'Could not create the report. Try again.'), kind: 'error' });
+    }
+  };
+
+  return <div className="app-shell">
+    <aside className="sidebar">
+      <div className="brand"><span className="brand-icon"><BookOpen size={17}/></span><span><b>MECHLEDGER</b><small>Equipment assistant</small></span></div>
+      <button className="new-conversation" onClick={addConversation}><Plus size={17}/> New conversation</button>
+      <div className="sidebar-label">CONVERSATIONS</div>
+      <div className="conversation-list">
+        {cases.map(item => <div key={item.id} className={`conversation-row ${item.id === caseId ? 'active' : ''}`}>
+          <button className="conversation-select" onClick={() => { setCaseId(item.id); setQuestion(''); setNotice(null); }} title={item.title}>
+            <MessageSquare size={15}/><span>{item.title}</span>
+          </button>
+          <button className="delete-conversation" onClick={() => deleteConversation(item.id)} aria-label={`Delete conversation ${item.title}`} title="Delete conversation"><Trash2 size={15}/></button>
+        </div>)}
+      </div>
+      <div className="sidebar-footer">Your conversations are saved in this browser.</div>
+    </aside>
+
+    <main className="main-panel">
+      <header className="topbar">
+        <div><span className="eyebrow">MECHLEDGER</span><h1>{activeCase.title === 'New conversation' ? 'Equipment assistant' : activeCase.title}</h1></div>
+        <div className="topbar-actions">
+          {activeCase.messages.some(message => message.role === 'user') && <button className="secondary-button" onClick={downloadReport}><Download size={16}/> Report</button>}
+          <button className="primary-button" onClick={() => picker.current?.click()} disabled={uploading}><Upload size={16}/>{uploading ? 'Saving…' : 'Add a manual'}</button>
+          {activeCase.messages.length > 0 && <button className="delete-active" onClick={() => deleteConversation(caseId)}><Trash2 size={16}/><span>Delete conversation</span></button>}
         </div>
+      </header>
 
-        <button className="new-chat-btn" onClick={createNewChat}>
-          <Plus size={20} /> New Chat
-        </button>
+      {notice && <div className={`notice notice-${notice.kind}`} role={notice.kind === 'error' ? 'alert' : 'status'}>
+        {notice.kind === 'success' ? <CheckCircle2 size={17}/> : notice.kind === 'error' || notice.kind === 'warning' ? <AlertCircle size={17}/> : <LoaderCircle className={notice.kind === 'loading' ? 'spin' : ''} size={17}/>}
+        <span>{notice.text}</span><button onClick={() => setNotice(null)} aria-label="Dismiss message"><X size={16}/></button>
+      </div>}
 
-        <div className="section-title">Recent Chats</div>
-        <div className="item-list">
-          {chats.map(chat => (
-            <div 
-              key={chat.id} 
-              className={`list-item ${chat.id === currentChatId ? 'active' : ''}`}
-              onClick={() => setCurrentChatId(chat.id)}
-              style={{ position: 'relative' }}
-            >
-              <MessageSquare />
-              
-              {editingChatId === chat.id ? (
-                <input 
-                  autoFocus
-                  value={editingTitle}
-                  onChange={(e) => setEditingTitle(e.target.value)}
-                  onBlur={() => handleRenameSubmit(chat.id)}
-                  onKeyDown={(e) => { if (e.key === 'Enter') handleRenameSubmit(chat.id) }}
-                  style={{ background: 'transparent', border: '1px solid var(--primary)', color: 'white', flex: 1, padding: '2px 4px', borderRadius: '4px' }}
-                />
-              ) : (
-                <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', flex: 1 }}>
-                  {chat.title}
-                </span>
-              )}
-
-              <button 
-                className="chat-options-btn"
-                onClick={(e) => { e.stopPropagation(); setDropdownId(dropdownId === chat.id ? null : chat.id); }}
-              >
-                <MoreVertical size={16} />
-              </button>
-
-              {dropdownId === chat.id && (
-                <div className="chat-dropdown">
-                  <div onClick={(e) => { e.stopPropagation(); setEditingChatId(chat.id); setEditingTitle(chat.title); setDropdownId(null); }}>
-                    <Edit2 size={14} /> Rename
-                  </div>
-                  <div onClick={(e) => handleRefreshChat(chat.id, e)}>
-                    <RefreshCw size={14} /> Refresh
-                  </div>
-                  <div onClick={(e) => handleDeleteChat(chat.id, e)} className="danger">
-                    <Trash2 size={14} /> Delete
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        <div className="section-title">Knowledge Base</div>
-        <div className="item-list" style={{ flex: 0.5 }}>
-          {documents.map((doc, idx) => (
-            <div 
-              key={idx} 
-              className="list-item"
-              onClick={() => setViewingDoc(`${API_BASE}/documents/${currentChatId}/${doc}`)}
-            >
-              <FileText />
-              <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                {doc}
-              </span>
-            </div>
-          ))}
-        </div>
-
+      <div className="documents-bar" aria-label="Manuals in this conversation">
+        <div className="documents-title"><FileText size={16}/><b>Manuals</b><span>{documents.length}</span></div>
+        {documents.length ? <div className="document-chips">
+          {documents.map(item => <div className={`document-chip chip-${item.status || 'needs_retry'}`} key={item.filename}>
+            {item.status === 'processing' ? <LoaderCircle className="spin" size={15}/> : item.status === 'ready' || item.indexed ? <CheckCircle2 size={15}/> : <AlertCircle size={15}/>}
+            <span className="chip-name" title={item.filename}>{item.filename}</span>
+            <span className="chip-status">{statusLabel(item)}</span>
+            {item.status === 'failed' || item.status === 'needs_retry' ? <button onClick={() => retryDocument(item.filename)} disabled={workingDocument === item.filename} aria-label={`Retry ${item.filename}`} title="Retry"><RotateCw size={14}/></button> : null}
+            <button onClick={() => removeDocument(item.filename)} aria-label={`Remove ${item.filename}`} title="Remove manual"><X size={14}/></button>
+            {item.status === 'failed' && item.message && <span className="document-help">{item.message}</span>}
+          </div>)}
+        </div> : <button className="inline-add" onClick={() => picker.current?.click()} disabled={uploading}><Plus size={15}/> Add a manual</button>}
       </div>
 
-      {/* Main Content Area */}
-      <div className="main-content">
-        {/* Chat Interface */}
-        <div className="chat-area">
-          <div className="messages-container">
-            {currentChat.messages.length === 0 && (
-              <div style={{ textAlign: 'center', margin: 'auto', color: 'var(--text-muted)' }}>
-                <Bot size={48} style={{ margin: '0 auto 1rem', opacity: 0.5 }} />
-                <h2>How can I assist you with your industrial equipment today?</h2>
-                <p>Upload a manual or SOP to get started.</p>
-              </div>
-            )}
-            
-            {currentChat.messages.map((msg, idx) => (
-              <div key={idx} className={`message ${msg.role} ${msg.isLoading ? 'loading' : ''} ${msg.error ? 'error' : ''}`}>
-                {msg.role !== 'system' && (
-                  <div className={`avatar ${msg.role}`}>
-                    {msg.role === 'ai' ? <Bot size={20} /> : <User size={20} />}
-                  </div>
-                )}
-                <div className={`message-content ${msg.role === 'system' ? 'system-msg-box' : 'markdown-body'}`}>
-                  {msg.role === 'system' && msg.closable && (
-                    <button className="close-system-btn" onClick={() => removeMessage(currentChatId, msg.id)}>
-                      <X size={14} />
-                    </button>
-                  )}
-                  
-                  {msg.isLoading ? (
-                    <div style={{ width: '100%', minWidth: '300px' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px', justifyContent: 'center' }}>
-                        <Loader2 className="animate-spin" size={18} style={{ color: 'var(--primary)' }} />
-                        <span style={{ fontWeight: '500', color: 'white' }}>Processing {msg.content}</span>
-                      </div>
-                      <div className="processing-grid">
-                        {PROCESSING_STEPS.map((step, i) => {
-                          let statusClass = 'pending';
-                          if (i < msg.progress) statusClass = 'completed';
-                          else if (i === msg.progress) statusClass = 'active';
-                          
-                          return (
-                            <div key={i} className={`status-item ${statusClass}`}>
-                              <div className={`status-dot ${statusClass}`}></div>
-                              {step}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  ) : (
-                    <div className={msg.role === 'system' ? 'system-msg' : ''}>
-                      <ReactMarkdown
-                        components={{
-                          a: ({node, ...props}) => <a target="_blank" rel="noopener noreferrer" {...props} />
-                        }}
-                      >
-                        {msg.content}
-                      </ReactMarkdown>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-            
-            {isTyping && (
-              <div className="message ai">
-                <div className="avatar ai"><Bot size={20} /></div>
-                <div className="message-content">
-                  <div className="typing-indicator">
-                    <span></span><span></span><span></span>
-                  </div>
-                </div>
-              </div>
-            )}
-            <div ref={messagesEndRef} />
-          </div>
+      <section className="chat-area">
+        {!activeCase.messages.length ? <div className="welcome-card">
+          <div className="welcome-icon"><BookOpen size={25}/></div>
+          <h2>Ask about your equipment</h2>
+          <p>1. Add a manual. &nbsp; 2. Describe the problem. &nbsp; 3. Check the linked source page.</p>
+          <button className="primary-button welcome-button" onClick={() => picker.current?.click()} disabled={uploading}><Upload size={16}/> Choose a manual</button>
+          <small>PDF, DOCX or TXT · Up to 50 MB</small>
+        </div> : <div className="messages" ref={thread}>
+          {activeCase.messages.map((message, index) => <article className={`message message-${message.role}`} key={`${index}-${message.content.slice(0, 20)}`}>
+            {message.role === 'user' ? <div className="user-bubble">{message.content}</div> : <div className="assistant-message"><div className="assistant-label"><BookOpen size={15}/> MECHLEDGER</div><div className="markdown-answer"><ReactMarkdown components={{ a: ({ href, children, ...props }) => <a href={href} onClick={event => { event.preventDefault(); openSource(href); }} {...props}>{children}</a> }}>{message.content}</ReactMarkdown></div></div>}
+          </article>)}
+          {thinking && <div className="thinking"><LoaderCircle className="spin" size={16}/> Looking through your manuals…</div>}
+        </div>}
+      </section>
 
-          <div className="input-area">
-            <form className="input-box" onSubmit={sendMessage}>
-              <label className="chat-upload-btn" title="Upload Document" style={{ opacity: uploading ? 0.5 : 1, pointerEvents: uploading ? 'none' : 'auto' }}>
-                {uploading ? <Loader2 className="animate-spin" size={18} /> : <Plus size={20} />}
-                <input type="file" hidden accept=".pdf,.docx,.txt" onChange={handleFileUpload} disabled={uploading || isTyping} />
-              </label>
-              <input 
-                type="text" 
-                placeholder={uploading ? "Processing document..." : "Ask IKB-RAG about your equipment..."} 
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                disabled={isTyping || uploading}
-              />
-              <button type="submit" className="send-btn" disabled={!input.trim() || isTyping || uploading}>
-                <Send size={18} />
-              </button>
-            </form>
-          </div>
-        </div>
-
-        {/* Document Viewer Split Panel */}
-        {viewingDoc && (
-          <div className="doc-viewer">
-            <div className="doc-header">
-              <h3><FileText size={18} className="text-primary" /> Document Viewer</h3>
-              <button className="close-doc-btn" onClick={() => setViewingDoc(null)}>
-                <X size={20} />
-              </button>
-            </div>
-            <iframe 
-              src={viewingDoc} 
-              className="doc-iframe"
-              title="Document Viewer"
-            />
-          </div>
-        )}
+      <div className="composer-area">
+        <form className="composer" onSubmit={send}>
+          <textarea value={question} onChange={event => setQuestion(event.target.value)} placeholder={readyDocuments.length ? 'Describe the problem or ask a question…' : 'Add a manual and wait until it is ready to ask'} rows={2} disabled={!readyDocuments.length || thinking} onKeyDown={event => { if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); send(event); } }}/>
+          <button className="send-button" type="submit" disabled={!question.trim() || !readyDocuments.length || thinking} aria-label="Send question"><Send size={17}/></button>
+        </form>
+        <div className="composer-help"><span>Answers use your manuals and include source links when available.</span><span>Enter to send · Shift + Enter for a new line</span></div>
       </div>
-      
-      {chatToDelete && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <h3><AlertTriangle size={24} /> Delete Chat?</h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.5', marginBottom: '24px' }}>
-              Are you sure you want to delete this chat? All uploaded PDFs, extracted images, and parsed data associated with this chat will be permanently erased.
-            </p>
-            <div className="modal-actions">
-              <button className="btn-secondary" onClick={() => setChatToDelete(null)}>Cancel</button>
-              <button className="btn-danger" onClick={confirmDeleteChat}>Delete Permanently</button>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
+    </main>
+    <input ref={picker} type="file" accept="application/pdf,.pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.docx,text/plain,.txt" hidden disabled={uploading} onChange={upload}/>
+  </div>;
 }

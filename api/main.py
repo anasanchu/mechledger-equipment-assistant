@@ -1,4 +1,4 @@
-"""FastAPI application entrypoint for IKB-RAG.
+"""FastAPI application entrypoint for MECHLEDGER.
 
 Configures middleware, registers routes, and starts the server via Uvicorn.
 """
@@ -11,7 +11,7 @@ from config.settings import API_HOST, API_PORT
 
 def create_app() -> FastAPI:
     """Creates and configures the FastAPI application instance."""
-    app = FastAPI(title="IKB-RAG API")
+    app = FastAPI(title="MECHLEDGER API", description="Industrial knowledge and evidence-led diagnostics")
 
     # Enable CORS for the React frontend
     app.add_middleware(

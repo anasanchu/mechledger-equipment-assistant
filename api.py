@@ -1,7 +1,7 @@
-"""Legacy entrypoint launcher for IKB-RAG API.
+"""Compatibility entrypoint launcher for the MECHLEDGER API.
 
 Maintained at the project root for seamless backward compatibility.
-The full modular implementation resides in api/main.py.
+The modular implementation resides in api/main.py.
 """
 
 from api.main import app

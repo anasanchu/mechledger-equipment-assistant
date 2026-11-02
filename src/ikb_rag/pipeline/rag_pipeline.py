@@ -1,4 +1,4 @@
-"""IKB-RAG Pipeline orchestrator.
+"""MECHLEDGER RAG pipeline orchestrator.
 
 Coordinates ingestion, vector storage, query transformation, retrieval,
 and response generation. Preserves exact engine behaviors and public interfaces.
@@ -10,11 +10,11 @@ from typing import Optional, List, Dict, Any
 from config.settings import (
     HF_TOKEN,
     GROQ_API_KEY,
-    NOMIC_API_KEY,
     QDRANT_URL,
     QDRANT_API_KEY,
     DB_PATH,
     QDRANT_COLLECTION_NAME,
+    OLLAMA_CHAT_MODEL,
 )
 from src.ikb_rag.embeddings.embedder import NomicEmbedder
 from src.ikb_rag.vectorstore.qdrant_store import QdrantStore
@@ -33,18 +33,17 @@ class IKBRagEngine:
 
     def __init__(self):
         print("\n" + "=" * 50)
-        print("[*] INITIALIZING IKB-RAG ENGINE")
+        print("[*] INITIALIZING MECHLEDGER ENGINE")
         print("=" * 50)
 
         self.hf_token = HF_TOKEN
         self.groq_api_key = GROQ_API_KEY
-        self.nomic_api_key = NOMIC_API_KEY
 
         # 1. Check Groq LLM Connection
         if self.groq_api_key:
             print("[SUCCESS] Groq API Key found (LLM Inference Ready)")
         else:
-            print("[ERROR] Groq API Key missing! LLM queries will fail.")
+            print(f"[INFO] Groq key missing. Chat will use local Ollama model: {OLLAMA_CHAT_MODEL}.")
 
         # 2. Check Qdrant Cloud DB Connection
         self.qdrant_url = QDRANT_URL
@@ -69,21 +68,18 @@ class IKBRagEngine:
                 self.use_qdrant = False
 
         if not self.use_qdrant:
-            print("[WARNING] Qdrant unavailable. Falling back to simple_vector_db.json")
+            print(f"[WARNING] Qdrant unavailable. Falling back to {self.db_path}")
             self.json_store = SimpleJsonStore(db_path=self.db_path)
             self.active_store = self.json_store
 
-        # 3. Nomic Embeddings API configuration
-        if self.nomic_api_key:
-            print("[SUCCESS] Nomic API Key found (Embeddings Ready)")
-        else:
-            print("[WARNING] NOMIC_API_KEY missing! Embeddings will fail unless provided.")
+        # 3. Local Ollama embedding configuration
+        print("[INFO] Technical embeddings are generated locally through Ollama.")
 
         print("[SUCCESS] MinerU API configured for document processing.")
         print("=" * 50 + "\n")
 
         # Initialize modular sub-components
-        self.embedder = NomicEmbedder(api_key=self.nomic_api_key)
+        self.embedder = NomicEmbedder()
         self.llm_client = GroqClient(api_key=self.groq_api_key)
         self.loader = MinerUDocumentLoader(hf_token=self.hf_token)
         self.chunker = StructuralElementChunker()
@@ -121,12 +117,15 @@ class IKBRagEngine:
         parsed_data, text, base_name, pdf_base, doc_url = self.loader.load_and_parse(file_path, chat_id)
         raw_elements, payloads = self.chunker.chunk(parsed_data, text, chat_id, base_name, pdf_base, doc_url)
 
-        print("🟡 Queue: Generating vector embeddings via Nomic API...")
+        print("🟡 Queue: Generating vector embeddings...")
         embeddings = self.embedder.get_embeddings(raw_elements, task_type="search_document")
 
         if isinstance(embeddings, dict) and "error" in embeddings:
-            raise Exception(f"Nomic API Error: {embeddings['error']}")
+            raise RuntimeError(f"Ollama embedding error: {embeddings['error']}")
 
+        # Replace vectors for this source only after extraction and embedding
+        # succeeded, so refresh attempts preserve the previous index on failure.
+        self.active_store.delete_document(chat_id, base_name)
         print(f"Indexing {len(raw_elements)} chunks into Vector DB...")
         self.active_store.add_documents(payloads, embeddings)
 

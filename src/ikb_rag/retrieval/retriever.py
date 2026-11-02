@@ -21,11 +21,12 @@ class Retriever:
         """Returns raw payload dictionaries from the active vector store for a query string."""
         emb_result = self.embedder.get_embeddings([q_str], task_type="search_query")
         if isinstance(emb_result, dict) and "error" in emb_result:
-            print(f"Nomic API Error: {emb_result['error']}")
-            return []
+            raise RuntimeError(f"Ollama embedding error: {emb_result['error']}")
 
         q_emb = emb_result[0]
-        return self.store.search(q_emb, chat_id=chat_id, limit=limit)
+        return self.store.search(
+            q_emb, chat_id=chat_id, limit=limit, embedding_model=self.embedder.model
+        )
 
     def assemble_context(self, all_payloads: List[Dict[str, Any]]) -> str:
         """Groups payloads by page_id and constructs an optimized multi-source context string."""

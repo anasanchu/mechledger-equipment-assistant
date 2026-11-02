@@ -19,8 +19,6 @@ class IndexManager:
 
     def refresh_chat_data(self, chat_id: str, index_document_fn: Callable[[str, str], int]) -> str:
         """Re-indexes all previously uploaded files for a specific chat_id."""
-        self.store.delete_chat(chat_id)
-
         reindexed = 0
         if os.path.exists(UPLOAD_DIR):
             for filename in os.listdir(UPLOAD_DIR):
